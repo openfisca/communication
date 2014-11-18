@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<title>Dahu Presentation
+</title>
+<meta charset="utf-8">
+<script src="http://code.jquery.com/jquery-1.9.1.min.js" type="text/javascript">
+</script>
+<script src="parse-search.js" type="text/javascript">
+</script>
+
+<link rel="stylesheet" href="dahuapp.viewer.css"><style>.tooltip_smic{background-color:   #FFFFDD;width:  240px}
+.tooltip_validate{background-color:   #FFFFDD;width:  240px}
+.tooltip_smic_more{background-color:   #FFFFDD;width:  240px}
+.tooltip_irpp{background-color:   #FFFFDD;width:  240px}
+</style>
+</head>
+
+<body>
+
+<div id="my-dahu-presentation">
+
+<div id="loading">Loading presentation...
+</div>
+
+<div class="object-list" style="display: none">
+<img src="img/0.png" alt="img/0.png" class="background 0">
+<img src="img/1.png" alt="img/1.png" class="background 1">
+<img src="img/11.png" alt="img/11.png" class="background 11">
+<img src="img/12.png" alt="img/12.png" class="background 12">
+<img src="img/13.png" alt="img/13.png" class="background 13">
+<img src="img/2.png" alt="img/2.png" class="background 2">
+<img src="img/3.png" alt="img/3.png" class="background 3">
+<img src="img/5.png" alt="img/5.png" class="background 5">
+
+<div class="tooltip tooltip_smic">Saisir un salaire annuel imposable
+<br>de 13 544 € correspondant au SMIC
+</div>
+
+<div class="tooltip tooltip_validate">Valider les changements
+</div>
+<img src="img/8.png" alt="img/8.png" class="background 8">
+<img src="img/10.png" alt="img/10.png" class="background 10">
+<img src="img/9.png" alt="img/9.png" class="background 9">
+<img src="img/4.png" alt="img/4.png" class="background 4">
+
+<div class="tooltip tooltip_smic_more">Saisir un salaire annuel imposable
+<br>légèrement supérieur au SMIC
+</div>
+<img src="img/14.png" alt="img/14.png" class="background 14">
+
+<div class="tooltip tooltip_irpp">On voit apparaître un impôt
+<br>sur le revenu de 113 €
+</div>
+
+<div class="mouse-cursor">
+<img src="img/cursor.png" alt="img/cursor.png" class="mouse-cursor-normal">
+<img src="img/cursor-pause.png" alt="img/cursor-pause.png" style="display: none" class="mouse-cursor-pause">
+</div>
+</div>
+
+<div class="control" style="top: 784px;">
+<button class="previous">Previous
+</button>
+<button class="next">Next
+</button>
+</div>
+</div>
+<script src="dahuapp.js" type="text/javascript">
+</script>
+<script src="dahuapp.viewer.js" type="text/javascript">
+</script>
+<script type="text/javascript">(function($) {
+    var myPresentation = dahuapp.viewer.createDahuViewer("#my-dahu-presentation", window.getParams);
+    myPresentation.load({
+    "metaData": {
+        "imageWidth": 1366,
+        "imageHeight": 768,
+        "initialBackgroundId": "0",
+        "initialMouseX": 0.1925329428989751,
+        "initialMouseY": 0.4674479166666667
+    },
+    "action": [
+        {
+            "type": "move",
+            "target": "mouse-cursor",
+            "trigger": "onClick",
+            "finalAbs": 0.7525622254758418,
+            "finalOrd": 0.46875,
+            "speed": 0.8
+        },
+        {
+            "type": "move",
+            "target": "mouse-cursor",
+            "trigger": "onClick",
+            "finalAbs": 0.7525622254758418,
+            "finalOrd": 0.46875,
+            "speed": 0.8
+        },
+        {
+            "type": "appear",
+            "target": "1",
+            "trigger": "afterPrevious",
+            "abs": 0,
+            "ord": 0,
+            "duration": 0
+        },
+        {
+            "type": "move",
+            "target": "mouse-cursor",
+            "trigger": "onClick",
+            "finalAbs": 0.39092240117130306,
+            "finalOrd": 0.68359375,
+            "speed": 0.8
+        },
+        {
+            "type": "appear",
+            "target": "11",
+            "trigger": "afterPrevious",
+            "abs": 0,
+            "ord": 0,
+            "duration": 0
+        },
+        {
+            "type": "move",
+            "target": "mouse-cursor",
+            "trigger": "onClick",
+            "finalAbs": 0.8755490483162518,
+            "finalOrd": 0.3385416666666667,
+            "speed": 0.8
+        },
+        {
+            "type": "move",
+            "target": "mouse-cursor",
+            "trigger": "onClick",
+            "finalAbs": 0.49487554904831627,
+            "finalOrd": 0.70703125,
+            "speed": 0.8
+        },
+        {
+            "type": "appear",
+            "target": "12",
+            "trigger": "afterPrevious",
+            "abs": 0,
+            "ord": 0,
+            "duration": 0
+        },
+        {
+            "type": "move",
+            "target": "mouse-cursor",
+            "trigger": "onClick",
+            "finalAbs": 0.8133235724743777,
+            "finalOrd": 0.2903645833333333,
+            "speed": 0.8
+        },
+        {
+            "type": "move",
+            "target": "mouse-cursor",
+            "trigger": "onClick",
+            "finalAbs": 0.9224011713030746,
+            "finalOrd": 0.3802083333333333,
+            "speed": 0.8
+        },
+        {
+            "type": "appear",
+            "target": "13",
+            "trigger": "afterPrevious",
+            "abs": 0,
+            "ord": 0,
+            "duration": 0
+        },
+        {
+            "type": "move",
+            "target": "mouse-cursor",
+            "trigger": "onClick",
+            "finalAbs": 0.06954612005856516,
+            "finalOrd": 0.3333333333333333,
+            "speed": 0.8
+        },
+        {
+            "type": "appear",
+            "target": "2",
+            "trigger": "afterPrevious",
+            "abs": 0,
+            "ord": 0,
+            "duration": 0
+        },
+        {
+            "type": "move",
+            "target": "mouse-cursor",
+            "trigger": "onClick",
+            "finalAbs": 0.06954612005856516,
+            "finalOrd": 0.3333333333333333,
+            "speed": 0.8
+        },
+        {
+            "type": "appear",
+            "target": "3",
+            "trigger": "afterPrevious",
+            "abs": 0,
+            "ord": 0,
+            "duration": 0
+        },
+        {
+            "type": "move",
+            "target": "mouse-cursor",
+            "trigger": "onClick",
+            "finalAbs": 0.32723279648609077,
+            "finalOrd": 0.6067708333333334,
+            "speed": 0.8
+        },
+        {
+            "type": "move",
+            "target": "mouse-cursor",
+            "trigger": "onClick",
+            "finalAbs": 0.32723279648609077,
+            "finalOrd": 0.6067708333333334,
+            "speed": 0.8
+        },
+        {
+            "type": "appear",
+            "target": "5",
+            "trigger": "afterPrevious",
+            "abs": 0,
+            "ord": 0,
+            "duration": 0
+        },
+        {
+            "type": "appear",
+            "target": "tooltip_smic",
+            "trigger": "afterPrevious",
+            "abs": 0.32723279648609077,
+            "ord": 0.6067708333333334,
+            "duration": 400
+        },
+        {
+            "type": "move",
+            "target": "mouse-cursor",
+            "trigger": "onClick",
+            "finalAbs": 0.07759882869692533,
+            "finalOrd": 0.33984375,
+            "speed": 0.8
+        },
+        {
+            "type": "appear",
+            "target": "tooltip_validate",
+            "trigger": "afterPrevious",
+            "abs": 0.07759882869692533,
+            "ord": 0.33984375,
+            "duration": 400
+        },
+        {
+            "type": "appear",
+            "target": "8",
+            "trigger": "onClick",
+            "abs": 0,
+            "ord": 0,
+            "duration": 0
+        },
+        {
+            "type": "move",
+            "target": "mouse-cursor",
+            "trigger": "onClick",
+            "finalAbs": 0.7701317715959004,
+            "finalOrd": 0.5950520833333334,
+            "speed": 0.8
+        },
+        {
+            "type": "appear",
+            "target": "10",
+            "trigger": "afterPrevious",
+            "abs": 0,
+            "ord": 0,
+            "duration": 0
+        },
+        {
+            "type": "appear",
+            "target": "9",
+            "trigger": "onClick",
+            "abs": 0,
+            "ord": 0,
+            "duration": 0
+        },
+        {
+            "type": "move",
+            "target": "mouse-cursor",
+            "trigger": "afterPrevious",
+            "finalAbs": 0.07613469985358712,
+            "finalOrd": 0.33203125,
+            "speed": 0.8
+        },
+        {
+            "type": "appear",
+            "target": "4",
+            "trigger": "onClick",
+            "abs": 0,
+            "ord": 0,
+            "duration": 0
+        },
+        {
+            "type": "move",
+            "target": "mouse-cursor",
+            "trigger": "afterPrevious",
+            "finalAbs": 0.3279648609077599,
+            "finalOrd": 0.6158854166666666,
+            "speed": 0.8
+        },
+        {
+            "type": "appear",
+            "target": "tooltip_smic_more",
+            "trigger": "afterPrevious",
+            "abs": 0.3279648609077599,
+            "ord": 0.6158854166666666,
+            "duration": 400
+        },
+        {
+            "type": "move",
+            "target": "mouse-cursor",
+            "trigger": "onClick",
+            "finalAbs": 0.07759882869692533,
+            "finalOrd": 0.33984375,
+            "speed": 0.8
+        },
+        {
+            "type": "appear",
+            "target": "14",
+            "trigger": "onClick",
+            "abs": 0,
+            "ord": 0,
+            "duration": 0
+        },
+        {
+            "type": "move",
+            "target": "mouse-cursor",
+            "trigger": "onClick",
+            "finalAbs": 0.60761347,
+            "finalOrd": 0.455729167,
+            "speed": 0.8
+        },
+        {
+            "type": "appear",
+            "target": "tooltip_irpp",
+            "trigger": "afterPrevious",
+            "abs": 0.60761347,
+            "ord": 0.455729167,
+            "duration": 400
+        }
+    ]
+});
+    myPresentation.start();
+})(jQuery);
+
+</script>
+</body>
+</html>

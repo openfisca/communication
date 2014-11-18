@@ -1,0 +1,392 @@
+{
+    "metaData": {
+        "imageWidth": 1366,
+        "imageHeight": 768,
+        "nextUniqueId": 3
+    },
+    "data": [
+        {
+            "object": [
+                {
+                    "type": "background",
+                    "id": "0",
+                    "img": "img/0.png"
+                },
+                {
+                    "type": "mouse",
+                    "id": "mouse-cursor"
+                },
+                {
+                    "type": "background",
+                    "id": "1",
+                    "img": "img/1.png"
+                },
+                {
+                    "type": "background",
+                    "id": "11",
+                    "img": "img/11.png"
+                },
+                {
+                    "type": "background",
+                    "id": "12",
+                    "img": "img/12.png"
+                },
+                {
+                    "type": "background",
+                    "id": "13",
+                    "img": "img/13.png"
+                },
+                {
+                    "type": "background",
+                    "id": "2",
+                    "img": "img/2.png"
+                },
+                {
+                    "type": "background",
+                    "id": "3",
+                    "img": "img/3.png"
+                },
+                {
+                    "type": "background",
+                    "id": "5",
+                    "img": "img/5.png"
+                },
+                {
+                    "type": "tooltip",
+                    "id": "tooltip_smic",
+                    "text": "Saisir un salaire annuel imposable<br>de 13 544 € correspondant au SMIC",
+                    "color": "#FFFFDD",
+                    "width": "240px"
+                },
+                {
+                    "type": "tooltip",
+                    "id": "tooltip_validate",
+                    "text": "Valider les changements",
+                    "color": "#FFFFDD",
+                    "width": "240px"
+                },
+                {
+                    "type": "background",
+                    "id": "8",
+                    "img": "img/8.png"
+                },
+                {
+                    "type": "background",
+                    "id": "10",
+                    "img": "img/10.png"
+                },
+                {
+                    "type": "background",
+                    "id": "9",
+                    "img": "img/9.png"
+                },
+                {
+                    "type": "background",
+                    "id": "4",
+                    "img": "img/4.png"
+                },
+                {
+                    "type": "tooltip",
+                    "id": "tooltip_smic_more",
+                    "text": "Saisir un salaire annuel imposable<br>légèrement supérieur au SMIC",
+                    "color": "#FFFFDD",
+                    "width": "240px"
+                },
+                {
+                    "type": "background",
+                    "id": "14",
+                    "img": "img/14.png"
+                },
+                {
+                    "type": "tooltip",
+                    "id": "tooltip_irpp",
+                    "text": "On voit apparaître un impôt<br>sur le revenu de 113 €",
+                    "color": "#FFFFDD",
+                    "width": "240px"
+                }
+            ],
+            "action": [
+                {
+                    "type": "move",
+                    "target": "mouse-cursor",
+                    "trigger": "onClick",
+                    "finalAbs": 0.1925329428989751,
+                    "finalOrd": 0.4674479166666667,
+                    "speed": 0.8
+                },
+                {
+                    "type": "appear",
+                    "target": "0",
+                    "trigger": "afterPrevious",
+                    "abs": 0,
+                    "ord": 0,
+                    "duration": 0
+                },
+                {
+                    "type": "move",
+                    "target": "mouse-cursor",
+                    "trigger": "onClick",
+                    "finalAbs": 0.7525622254758418,
+                    "finalOrd": 0.46875,
+                    "speed": 0.8
+                },
+                {
+                    "type": "move",
+                    "target": "mouse-cursor",
+                    "trigger": "onClick",
+                    "finalAbs": 0.7525622254758418,
+                    "finalOrd": 0.46875,
+                    "speed": 0.8
+                },
+                {
+                    "type": "appear",
+                    "target": "1",
+                    "trigger": "afterPrevious",
+                    "abs": 0,
+                    "ord": 0,
+                    "duration": 0
+                },
+                {
+                    "type": "move",
+                    "target": "mouse-cursor",
+                    "trigger": "onClick",
+                    "finalAbs": 0.39092240117130306,
+                    "finalOrd": 0.68359375,
+                    "speed": 0.8
+                },
+                {
+                    "type": "appear",
+                    "target": "11",
+                    "trigger": "afterPrevious",
+                    "abs": 0,
+                    "ord": 0,
+                    "duration": 0
+                },
+                {
+                    "type": "move",
+                    "target": "mouse-cursor",
+                    "trigger": "onClick",
+                    "finalAbs": 0.8755490483162518,
+                    "finalOrd": 0.3385416666666667,
+                    "speed": 0.8
+                },
+                {
+                    "type": "move",
+                    "target": "mouse-cursor",
+                    "trigger": "onClick",
+                    "finalAbs": 0.49487554904831627,
+                    "finalOrd": 0.70703125,
+                    "speed": 0.8
+                },
+                {
+                    "type": "appear",
+                    "target": "12",
+                    "trigger": "afterPrevious",
+                    "abs": 0,
+                    "ord": 0,
+                    "duration": 0
+                },
+                {
+                    "type": "move",
+                    "target": "mouse-cursor",
+                    "trigger": "onClick",
+                    "finalAbs": 0.8133235724743777,
+                    "finalOrd": 0.2903645833333333,
+                    "speed": 0.8
+                },
+                {
+                    "type": "move",
+                    "target": "mouse-cursor",
+                    "trigger": "onClick",
+                    "finalAbs": 0.9224011713030746,
+                    "finalOrd": 0.3802083333333333,
+                    "speed": 0.8
+                },
+                {
+                    "type": "appear",
+                    "target": "13",
+                    "trigger": "afterPrevious",
+                    "abs": 0,
+                    "ord": 0,
+                    "duration": 0
+                },
+                {
+                    "type": "move",
+                    "target": "mouse-cursor",
+                    "trigger": "onClick",
+                    "finalAbs": 0.06954612005856516,
+                    "finalOrd": 0.3333333333333333,
+                    "speed": 0.8
+                },
+                {
+                    "type": "appear",
+                    "target": "2",
+                    "trigger": "afterPrevious",
+                    "abs": 0,
+                    "ord": 0,
+                    "duration": 0
+                },
+                {
+                    "type": "move",
+                    "target": "mouse-cursor",
+                    "trigger": "onClick",
+                    "finalAbs": 0.06954612005856516,
+                    "finalOrd": 0.3333333333333333,
+                    "speed": 0.8
+                },
+                {
+                    "type": "appear",
+                    "target": "3",
+                    "trigger": "afterPrevious",
+                    "abs": 0,
+                    "ord": 0,
+                    "duration": 0
+                },
+                {
+                    "type": "move",
+                    "target": "mouse-cursor",
+                    "trigger": "onClick",
+                    "finalAbs": 0.32723279648609077,
+                    "finalOrd": 0.6067708333333334,
+                    "speed": 0.8
+                },
+                {
+                    "type": "move",
+                    "target": "mouse-cursor",
+                    "trigger": "onClick",
+                    "finalAbs": 0.32723279648609077,
+                    "finalOrd": 0.6067708333333334,
+                    "speed": 0.8
+                },
+                {
+                    "type": "appear",
+                    "target": "5",
+                    "trigger": "afterPrevious",
+                    "abs": 0,
+                    "ord": 0,
+                    "duration": 0
+                },
+                {
+                    "type": "appear",
+                    "target": "tooltip_smic",
+                    "trigger": "afterPrevious",
+                    "abs": 0.32723279648609077,
+                    "ord": 0.6067708333333334,
+                    "duration": 400
+                },
+                {
+                    "type": "move",
+                    "target": "mouse-cursor",
+                    "trigger": "onClick",
+                    "finalAbs": 0.07759882869692533,
+                    "finalOrd": 0.33984375,
+                    "speed": 0.8
+                },
+                {
+                    "type": "appear",
+                    "target": "tooltip_validate",
+                    "trigger": "afterPrevious",
+                    "abs": 0.07759882869692533,
+                    "ord": 0.33984375,
+                    "duration": 400
+                },
+                {
+                    "type": "appear",
+                    "target": "8",
+                    "trigger": "onClick",
+                    "abs": 0,
+                    "ord": 0,
+                    "duration": 0
+                },
+                {
+                    "type": "move",
+                    "target": "mouse-cursor",
+                    "trigger": "onClick",
+                    "finalAbs": 0.7701317715959004,
+                    "finalOrd": 0.5950520833333334,
+                    "speed": 0.8
+                },
+                {
+                    "type": "appear",
+                    "target": "10",
+                    "trigger": "afterPrevious",
+                    "abs": 0,
+                    "ord": 0,
+                    "duration": 0
+                },
+                {
+                    "type": "appear",
+                    "target": "9",
+                    "trigger": "onClick",
+                    "abs": 0,
+                    "ord": 0,
+                    "duration": 0
+                },
+                {
+                    "type": "move",
+                    "target": "mouse-cursor",
+                    "trigger": "afterPrevious",
+                    "finalAbs": 0.07613469985358712,
+                    "finalOrd": 0.33203125,
+                    "speed": 0.8
+                },
+                {
+                    "type": "appear",
+                    "target": "4",
+                    "trigger": "onClick",
+                    "abs": 0,
+                    "ord": 0,
+                    "duration": 0
+                },
+                {
+                    "type": "move",
+                    "target": "mouse-cursor",
+                    "trigger": "afterPrevious",
+                    "finalAbs": 0.3279648609077599,
+                    "finalOrd": 0.6158854166666666,
+                    "speed": 0.8
+                },
+                {
+                    "type": "appear",
+                    "target": "tooltip_smic_more",
+                    "trigger": "afterPrevious",
+                    "abs": 0.3279648609077599,
+                    "ord": 0.6158854166666666,
+                    "duration": 400
+                },
+                {
+                    "type": "move",
+                    "target": "mouse-cursor",
+                    "trigger": "onClick",
+                    "finalAbs": 0.07759882869692533,
+                    "finalOrd": 0.33984375,
+                    "speed": 0.8
+                },
+                {
+                    "type": "appear",
+                    "target": "14",
+                    "trigger": "onClick",
+                    "abs": 0,
+                    "ord": 0,
+                    "duration": 0
+                },
+                {
+                    "type": "move",
+                    "target": "mouse-cursor",
+                    "trigger": "onClick",
+                    "finalAbs": 0.60761347,
+                    "finalOrd": 0.455729167,
+                    "speed": 0.8
+                },
+                {
+                    "type": "appear",
+                    "target": "tooltip_irpp",
+                    "trigger": "afterPrevious",
+                    "abs": 0.60761347,
+                    "ord": 0.455729167,
+                    "duration": 400
+                }
+            ]
+        }
+    ]
+}
