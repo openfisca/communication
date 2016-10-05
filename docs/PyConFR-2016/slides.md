@@ -31,7 +31,7 @@ lalala
 
 # Complexité de la loi
 
-.center[<img title="Livres des codes de la loi" src="livres-codes.jpg" width="500">]
+.center[<img title="Livres des codes de la loi" src="livres-codes.jpg" width="600">]
 
 ???
 La loi ça vous parle ? Et si des geeks codeurs se mettaient à la transformer en code source en Python ?
@@ -91,8 +91,33 @@ Le graphe de la législation actuelle
 
 # Usages d'OpenFisca
 
-- https://mes-aides.gouv.fr/
-- https://embauche.beta.gouv.fr/
+- produits dédiés à un domaine
+  - https://mes-aides.gouv.fr/
+  - https://embauche.beta.gouv.fr/
+- base de documentation
+  - https://legislation.openfisca.fr/
+- études d'impact, projets de lois, de réformes
+
+???
+l'IPP
+Communauté du revenu de base
+
+---
+
+# Composants
+
+- moteur de calcul : [OpenFisca-Core](https://github.com/openfisca/openfisca-core)
+- législation Française : [OpenFisca-France](https://github.com/openfisca/openfisca-france)
+- interfaces utilisateur web :
+  - [démonstrateur](https://ui.openfisca.fr/)
+  - [explorateur de la législation](https://legislation.openfisca.fr/)
+
+---
+
+# International
+
+- il existe [OpenFisca-Tunisia](https://github.com/openfisca/openfisca-tunisia)
+- début Novembre hackathon à Dakar (Sénégal)
 
 ---
 
@@ -111,9 +136,18 @@ Le graphe de la législation actuelle
 
 ---
 
+# Appréhender la complexité
+
+- outils de trace
+- explication des résultats des calculs
+
+TODO développer
+---
+
 # Communauté
 
 - métiers divers : économistes, développeurs, citoyens éclairés, start-uppers
+-
 
 ---
 
@@ -134,30 +168,36 @@ Le graphe de la législation actuelle
 
 
 
+
 ---
 
+class: center, middle
+
 # Calculateur des impôts
-
-Étapes de la libération :
-
-TODO Dates
-
-- étudiant-chercheur en économie
-- dépose d'une demande CADA => OK
-- décision du tribunal administratif
-- livraison du code source
+## surnomée la Calculette Impôts
 
 ---
 
 # Un nouvel univers
 
-- surnom : la Calculette Impôts
 - ce n'est pas OpenFisca
 - périmètres différents
 - implication des devs d'OpenFisca
 
 ???
 Le code M couvre les impôts sur les revenus, OpenFisca couvre en plus le social, l'entreprise...
+
+---
+
+# Étapes de la libération
+
+TODO Dates
+
+- étudiant-chercheur en économie
+- dépose d'une demande CADA => OK
+- décision du tribunal administratif
+- février 2016 : livraison du code source
+- avril 2016 : [hackathon](https://forum.openfisca.fr/t/guide-pratique-du-hackathon-codeimpot/42) à la fondation Mozilla
 
 ---
 
@@ -259,15 +299,27 @@ $ calculette-impots calculate V_ANREV=2014 \
 
 ---
 
-# Démocratie ++
+# Hackathon #CodeImpot
 
-- compréhension du système socio-fiscal
-- reproduction des études d'experts
-- dans des notebooks Jupyter !
+.center[<img title="Ateliers du hackathon #CodeImpot" src="hackathon-salle.jpg" width="500">]
+
+???
+- différents ateliers (TODO la liste)
 
 ---
 
-# Nouvelles possiblités
+# Démocratie ++
+
+- compréhension du système socio-fiscal
+- possibilité de reproduire les études d'experts
+- un outil neutre pour un débat informé
+
+???
+Phrases démagogiques... les pauvres qui tirent sur la corde
+
+---
+
+# Nouvelles opportunités
 
 - simulateur offline en JavaScript
 - opportunités de business
@@ -278,7 +330,7 @@ $ calculette-impots calculate V_ANREV=2014 \
 # Apports au projet
 
 - projet libre enrichi
-- fiabilité
+- fiabilisation
   - tests
   - comparaison des résultats
 - extraction de données : taux, barèmes
@@ -288,7 +340,51 @@ $ calculette-impots calculate V_ANREV=2014 \
 # Comparaison des résultats
 
 - génération de population aléatoire (TODO comment)
--
+- exécution des calculs dans les différents simulateurs
+- comparaison [graphique](https://github.com/openfisca/combine-calculators/blob/master/scripts/visual_comparisons.ipynb) des résultats
+- référence : le simulateur en ligne des impôts
+
+---
+
+# Impôt par calculateur
+
+.center[<img title="Impôt sur le revenu par calculateur" src="irpp_by_calculator.png" width="600">]
+
+---
+
+## Différences avec le simulateur impots.gouv.fr
+
+.center[<img title="Différences avec le simulateur en ligne" src="differences_with_online_simulator.png" width="600">]
+
+---
+
+# Débriefing sur M
+
+- le code M libéré n'est pas appelé correctement
+- transformation en Python à améliorer
+- il faut itérer avec l'équipe M
+- les tests
+- le code source des années précédentes / suivantes
+
+---
+
+# Tendance à l'ouverture
+
+- ouverture du [simulateur INES](https://git.framasoft.org/openfisca/ines-libre) par l'INSEE
+- TODO
+
+---
+
+# Conclusions
+
+- l'État tend à plus d'ouverture
+  - OpenData à Etalab
+  - Codes sources
+- bénéficie à la société civile
+- besoin de modélisation ouverte des lois
+- technologies ouvertes et standard
+
+TODO
 
 ---
 
