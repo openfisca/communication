@@ -1,11 +1,8 @@
 layout: true
 
-background-image: url(images/background.png)
-background-size: cover
-
-<footer style="position: absolute; bottom: 1em; left: 1em; right: 5em;">
-  <img src="images/logo-etalab-fullres.png" style="height: 80px; float: left;">
-  <img src="images/logo-openfisca.svg" style="height: 80px; float: right;">
+<footer style="position: absolute; bottom: 0em; left: 0em; right: 0em;">
+  <img src="images/logo-etalab-fullres.png" style="height: 80px; margin: 0.5em 1em; float: left;">
+  <img src="images/logo-openfisca.svg" style="height: 80px; margin: 0.5em 1em; float: right;">
 </footer>
 
 ---
@@ -13,6 +10,8 @@ background-size: cover
 class: center
 
 # Libération du calculateur<br>des impôts
+
+## PyCon France 2016 à Rennes
 
 https://www.openfisca.fr/
 
@@ -424,6 +423,7 @@ TODO
 # Améliorations
 
 - refactorings multiples (redbaron)
+- faciliter l'édition des formules
 - abstraction dans les calculs (helpers)
 - vers un arbre de calcul déclaratif ?
 
