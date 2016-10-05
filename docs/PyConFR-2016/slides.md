@@ -1,7 +1,7 @@
 layout: true
 
 <footer style="position: absolute; bottom: 0em; left: 0em; right: 0em;">
-  <img src="images/logo-etalab-fullres.png" style="height: 80px; margin: 0.5em 1em; float: left;">
+  <img src="images/logo-marianne.gif" style="height: 80px; margin: 0.5em 1em; float: left;">
   <img src="images/logo-openfisca.svg" style="height: 80px; margin: 0.5em 1em; float: right;">
 </footer>
 
@@ -12,6 +12,7 @@ class: center
 # Libération du calculateur<br>des impôts
 
 ## PyCon France 2016 à Rennes
+
 
 https://www.openfisca.fr/
 
@@ -68,6 +69,8 @@ def revenu_disponible(salaire):
 
 ## Et voilà !
 
+.center[<img src="images/logo-python.png" style="height:180px;">]
+
 ---
 
 # Visualisation
@@ -104,6 +107,8 @@ On se dit qu'en faisant un peu de parsing du code ou par d'autres techniques on 
 - version initiale en Python Qt
 - 2014 : des développeurs rejoignent le projet
 - version Python avec API web et UI JavaScript
+
+.center[<img src="images/logo-etalab-fullres.png" style="height: 80px;">]
 
 ---
 
