@@ -289,3 +289,13 @@ $ calculette-impots calculate V_ANREV=2014 \
 
 - génération de population aléatoire (TODO comment)
 -
+
+---
+
+# Source des slides
+
+https://github.com/openfisca/communication/tree/master/docs/PyConFR-2016
+
+---
+
+# Questions
