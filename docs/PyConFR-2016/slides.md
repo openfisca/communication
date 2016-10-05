@@ -1,11 +1,11 @@
 layout: true
 
-background-image: url(background.png)
+background-image: url(images/background.png)
 background-size: cover
 
 <footer style="position: absolute; bottom: 1em; left: 1em; right: 5em;">
-  <img src="logo-etalab-fullres.png" style="height: 80px; float: left;">
-  <img src="logo-openfisca.svg" style="height: 80px; float: right;">
+  <img src="images/logo-etalab-fullres.png" style="height: 80px; float: left;">
+  <img src="images/logo-openfisca.svg" style="height: 80px; float: right;">
 </footer>
 
 ---
@@ -31,7 +31,15 @@ lalala
 
 # Complexité de la loi
 
-.center[<img title="Livres des codes de la loi" src="livres-codes.jpg" width="600">]
+<div style="float: left; margin-top: 1em; margin-right: 1em;">
+  .center[<img title="Livres des codes de la loi" src="images/livres-codes.jpg" width="450">]
+</div>
+
+Qui comprend ?
+
+Ça grossit !
+
+<br><br>Et si des codeurs Python traduisaient ça en code source ?
 
 ???
 La loi ça vous parle ? Et si des geeks codeurs se mettaient à la transformer en code source en Python ?
@@ -68,24 +76,51 @@ def revenu_disponible(salaire):
 TODO Graphe de dépendance
 
 ???
-En faisant un peu de parsing du code ou par d'autres techniques on peut visualiser les dépendances entre les formules.
+On se dit qu'en faisant un peu de parsing du code ou par d'autres techniques on peut visualiser les dépendances entre les formules.
 
 ---
 
-# Visualisation des impôts
+## C'est tentant, mais fastidieux...
 
-.center[<img title="Graphe de la législation dans OpenFisca" src="graphe-legislation.jpg" width="600">]
+- le boulot a déjà été fait par l'État
+- peut-on y accéder ?
 
-???
-Le graphe de la législation actuelle
+.center[<img title="Refus" src="images/refus.jpg" width="300">]
+
 
 ---
 
 # Historique d'OpenFisca
 
-- accès impossible aux codes sources des administrations
+- 2011 : accès impossible aux codes sources
 - besoin de simuler des réformes
-- petits scripts Python / NumPy
+- 2 économistes de France Stratégie
+  - apprennent le Python pour l'occasion
+  - petits scripts Python / NumPy
+
+---
+
+# Historique d'OpenFisca
+
+- version initiale en Python Qt
+- 2014 : des développeurs rejoignent le projet
+- version Python avec API web et UI JavaScript
+
+---
+
+# Démonstrateur OpenFisca
+
+.center[<img title="Démonstrateur" src="images/démonstrateur.png" width="700">]
+
+---
+
+# Visualisation des formules
+
+.center[<img title="Graphe de la législation dans OpenFisca" src="images/graphe-legislation.jpg" width="600">]
+
+???
+Du coup grâce à ce travail on obtient enfin notre graphe !
+Le graphe de la législation actuelle
 
 ---
 
@@ -97,20 +132,52 @@ Le graphe de la législation actuelle
 - base de documentation
   - https://legislation.openfisca.fr/
 - études d'impact, projets de lois, de réformes
+  - Jupyter notebooks
 
 ???
+L'API Web permet de voir émerger des usages.
+
 l'IPP
 Communauté du revenu de base
 
 ---
 
-# Composants
+# Simuler avec des données
+
+- une situation type
+- versus une population
+  - données réelles secrètes
+  - données d'enquête accès limité
+  - données générées (en travaux)
+- réformes : qui gagne, qui perd ?
+
+---
+
+# Exemple de réforme
+
+TODO image
+
+---
+
+# Technos
+
+- Python 2 (TODO : passer à Python 3)
+- NumPy
+- Jupyter notebook
+- API web : WSGI
+- Refactorings : redbaron
+- UI JavaScript (React)
+
+---
+
+# Composants logiciels
 
 - moteur de calcul : [OpenFisca-Core](https://github.com/openfisca/openfisca-core)
 - législation Française : [OpenFisca-France](https://github.com/openfisca/openfisca-france)
 - interfaces utilisateur web :
   - [démonstrateur](https://ui.openfisca.fr/)
   - [explorateur de la législation](https://legislation.openfisca.fr/)
+  - [graphe des formules](https://legislation.openfisca.fr/graph/)
 
 ---
 
@@ -121,48 +188,16 @@ Communauté du revenu de base
 
 ---
 
-# Technos
-
-- Python
-- NumPy
-- Jupyter notebook
-- API web : WSGI
-- Refactorings : redbaron
-- UI JavaScript (React)
-
----
-
-# Python 3 ?
-
----
-
 # Appréhender la complexité
 
 - outils de trace
 - explication des résultats des calculs
 
 TODO développer
----
 
-# Communauté
-
-- métiers divers : économistes, développeurs, citoyens éclairés, start-uppers
--
-
----
-
-# Contribution
-
-- difficulté dans chaque domaine de la loi
-- difficulté à appréhender le moteur et ses concepts
-
----
-
-# Améliorations
-
-- refactorings multiples (redbaron)
-- abstraction dans les calculs (helpers)
-- vers un arbre de calcul déclaratif ?
+???
+Au final la technique permet de mieux s'y retrouver
+mais toujours non-officiel
 
 
 
@@ -173,8 +208,8 @@ TODO développer
 
 class: center, middle
 
-# Calculateur des impôts
-## surnomée la Calculette Impôts
+# « la Calculette Impôts »
+## libérée en avril 2016
 
 ---
 
@@ -230,16 +265,7 @@ TODO Illustrer
 - grammaire « PEG » avec [Arpeggio](http://igordejanovic.net/Arpeggio/getting_started/)
 - génération d'un arbre syntaxique en JSON
 - interpréter l'AST ou le compiler en Python
-
----
-
-# API Web
-
-
-- API web de calcul
-
-???
-API Web différente de celle d'OpenFisca
+- fournir des outils (CLI, API Web)
 
 ---
 
@@ -301,7 +327,7 @@ $ calculette-impots calculate V_ANREV=2014 \
 
 # Hackathon #CodeImpot
 
-.center[<img title="Ateliers du hackathon #CodeImpot" src="hackathon-salle.jpg" width="500">]
+.center[<img title="Ateliers du hackathon #CodeImpot" src="images/hackathon-salle.jpg" width="500">]
 
 ???
 - différents ateliers (TODO la liste)
@@ -310,6 +336,7 @@ $ calculette-impots calculate V_ANREV=2014 \
 
 # Démocratie ++
 
+- transparence
 - compréhension du système socio-fiscal
 - possibilité de reproduire les études d'experts
 - un outil neutre pour un débat informé
@@ -325,15 +352,21 @@ Phrases démagogiques... les pauvres qui tirent sur la corde
 - opportunités de business
 - tester des réformes politiques
 
+???
+L'API web peut être remplacée par un simulateur offline en JavaScript !
+
 ---
 
-# Apports au projet
+# Apports à OpenFisca
 
 - projet libre enrichi
 - fiabilisation
   - tests
   - comparaison des résultats
 - extraction de données : taux, barèmes
+
+???
+S'assurer que les calculs sont justes
 
 ---
 
@@ -348,13 +381,13 @@ Phrases démagogiques... les pauvres qui tirent sur la corde
 
 # Impôt par calculateur
 
-.center[<img title="Impôt sur le revenu par calculateur" src="irpp_by_calculator.png" width="600">]
+.center[<img title="Impôt sur le revenu par calculateur" src="images/irpp_by_calculator.png" width="600">]
 
 ---
 
 ## Différences avec le simulateur impots.gouv.fr
 
-.center[<img title="Différences avec le simulateur en ligne" src="differences_with_online_simulator.png" width="600">]
+.center[<img title="Différences avec le simulateur en ligne" src="images/differences_with_online_simulator.png" width="600">]
 
 ---
 
@@ -375,13 +408,36 @@ Phrases démagogiques... les pauvres qui tirent sur la corde
 
 ---
 
-# Conclusions
+# Comment aider ?
+
+TODO
+
+---
+
+# Contribution
+
+- difficulté dans chaque domaine de la loi
+- difficulté à appréhender le moteur et ses concepts
+
+---
+
+# Améliorations
+
+- refactorings multiples (redbaron)
+- abstraction dans les calculs (helpers)
+- vers un arbre de calcul déclaratif ?
+
+---
+
+# Conclusion
 
 - l'État tend à plus d'ouverture
   - OpenData à Etalab
   - Codes sources
 - bénéficie à la société civile
 - besoin de modélisation ouverte des lois
+  - base de documentation
+  - moteur de calcul de qualité
 - technologies ouvertes et standard
 
 TODO
@@ -393,5 +449,7 @@ TODO
 https://github.com/openfisca/communication/tree/master/docs/PyConFR-2016
 
 ---
+
+class: center, middle
 
 # Questions
