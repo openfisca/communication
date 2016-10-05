@@ -53,6 +53,8 @@ def impot_sur_le_revenu(salaire):
     return salaire * 0.3
 ```
 
+.center[<img src="images/logo-python.png" style="height:180px;">]
+
 ---
 
 # La loi en code source
@@ -61,6 +63,9 @@ def impot_sur_le_revenu(salaire):
 def impot_sur_le_revenu(salaire):
     return salaire * 0.3
 
+def allocations(salaire):
+  return 1000 if salaire < 10000 else 0
+
 def revenu_disponible(salaire):
     return salaire \
         - impot_sur_le_revenu(salaire) \
@@ -68,8 +73,6 @@ def revenu_disponible(salaire):
 ```
 
 ## Et voilà !
-
-.center[<img src="images/logo-python.png" style="height:180px;">]
 
 ---
 
@@ -107,6 +110,7 @@ On se dit qu'en faisant un peu de parsing du code ou par d'autres techniques on 
 - version initiale en Python Qt
 - 2014 : des développeurs rejoignent le projet
 - version Python avec API web et UI JavaScript
+- entièrement sous licence libre
 
 .center[<img src="images/logo-etalab-fullres.png" style="height: 80px;">]
 
@@ -116,50 +120,19 @@ On se dit qu'en faisant un peu de parsing du code ou par d'autres techniques on 
 
 .center[<img title="Démonstrateur" src="images/démonstrateur.png" width="700">]
 
+.center[https://ui.openfisca.fr/]
+
 ---
 
 # Visualisation des formules
 
 .center[<img title="Graphe de la législation dans OpenFisca" src="images/graphe-legislation.jpg" width="600">]
 
+.center[Inter-dépendances entre les formules]
+
 ???
 Du coup grâce à ce travail on obtient enfin notre graphe !
 Le graphe de la législation actuelle
-
----
-
-# Usages d'OpenFisca
-
-- produits dédiés à un domaine
-  - https://mes-aides.gouv.fr/
-  - https://embauche.beta.gouv.fr/
-- base de documentation
-  - https://legislation.openfisca.fr/
-- études d'impact, projets de lois, de réformes
-  - Jupyter notebooks
-
-???
-L'API Web permet de voir émerger des usages.
-
-l'IPP
-Communauté du revenu de base
-
----
-
-# Simuler avec des données
-
-- une situation type
-- versus une population
-  - données réelles secrètes
-  - données d'enquête accès limité
-  - données générées (en travaux)
-- réformes : qui gagne, qui perd ?
-
----
-
-# Exemple de réforme
-
-TODO image
 
 ---
 
@@ -174,21 +147,61 @@ TODO image
 
 ---
 
+# Usages d'OpenFisca
+
+## Simuler des cas individuels
+
+- produits dédiés à un domaine
+  - https://mes-aides.gouv.fr/
+  - https://embauche.beta.gouv.fr/
+
+???
+L'API Web permet de voir émerger des usages.
+
+l'IPP
+Communauté du revenu de base
+
+---
+
+# Usages d'OpenFisca
+
+## Simuler avec des données
+
+- données réelles secrètes
+- données d'enquête accès limité
+- données générées (en travaux)
+- réformes : qui gagne, qui perd ?
+
+---
+
+# Usages d'OpenFisca
+
+## Base de documentation
+
+- https://legislation.openfisca.fr/
+
+---
+
+# Usages d'OpenFisca
+
+## Études d'impact, projets de lois, de réformes
+
+- Jupyter notebooks
+
+TODO illustration suppression de la trance d'impôts
+
+---
+
 # Composants logiciels
 
 - moteur de calcul : [OpenFisca-Core](https://github.com/openfisca/openfisca-core)
 - législation Française : [OpenFisca-France](https://github.com/openfisca/openfisca-france)
-- interfaces utilisateur web :
-  - [démonstrateur](https://ui.openfisca.fr/)
-  - [explorateur de la législation](https://legislation.openfisca.fr/)
-  - [graphe des formules](https://legislation.openfisca.fr/graph/)
+- il existe aussi [OpenFisca-Tunisia](https://github.com/openfisca/openfisca-tunisia)
+- API Web HTTP+JSON
+- possibilité d'héberger sur son serveur
 
----
-
-# International
-
-- il existe [OpenFisca-Tunisia](https://github.com/openfisca/openfisca-tunisia)
-- début Novembre hackathon à Dakar (Sénégal)
+???
+début Novembre hackathon à Dakar (Sénégal)
 
 ---
 
@@ -196,8 +209,9 @@ TODO image
 
 - outils de trace
 - explication des résultats des calculs
+- tests
 
-TODO développer
+TODO développer, montrer la trace, ludwig
 
 ???
 Au final la technique permet de mieux s'y retrouver
@@ -240,25 +254,24 @@ TODO Dates
 
 ---
 
-# Le langage M
-
-- pas un mauvais choix
-- un langage dédié ou DSL
-- adapté aux non informaticiens
-- le poids de l'histoire
-
-???
-Le langage M propose des constructions pas aussi simples qu'elles pourraient l'être.
-
----
-
 # Exécution... impossible
 
+- langage M
 - il manque le compilateur :-/
 - un chantier :
   - transpilation de M vers Python
   - moteur de calcul en Python en standalone
   - API web en Python
+
+???
+adapté aux non informaticiens
+Le langage M propose des constructions pas aussi simples qu'elles pourraient l'être.
+
+---
+
+# Exemple langage M
+
+TODO
 
 ---
 
@@ -340,33 +353,26 @@ $ calculette-impots calculate V_ANREV=2014 \
 
 # Démocratie ++
 
+TODO Redites...
+
 - transparence
 - compréhension du système socio-fiscal
 - possibilité de reproduire les études d'experts
 - un outil neutre pour un débat informé
-
-???
-Phrases démagogiques... les pauvres qui tirent sur la corde
-
----
-
-# Nouvelles opportunités
-
 - simulateur offline en JavaScript
 - opportunités de business
 - tester des réformes politiques
 
 ???
 L'API web peut être remplacée par un simulateur offline en JavaScript !
+Phrases démagogiques... les pauvres qui tirent sur la corde
 
 ---
 
-# Apports à OpenFisca
+## Que peut apporter la libération de la Calculette Impôts à OpenFisca ?
 
-- projet libre enrichi
-- fiabilisation
-  - tests
-  - comparaison des résultats
+- fiabilisation des résultats
+- faire tourner les tests
 - extraction de données : taux, barèmes
 
 ???
@@ -392,6 +398,13 @@ S'assurer que les calculs sont justes
 ## Différences avec le simulateur impots.gouv.fr
 
 .center[<img title="Différences avec le simulateur en ligne" src="images/differences_with_online_simulator.png" width="600">]
+
+---
+
+# Synthèse des différences
+
+TODO Synthétiser les classes d'erreurs et leur pourcentage
+Combien de cas en tout, combien OK, combien ERREUR
 
 ---
 
@@ -434,24 +447,26 @@ TODO
 
 ---
 
+class: center, middle
+
 # Conclusion
 
-- l'État tend à plus d'ouverture
-  - OpenData à Etalab
-  - Codes sources
-- bénéficie à la société civile
-- besoin de modélisation ouverte des lois
-  - base de documentation
-  - moteur de calcul de qualité
-- technologies ouvertes et standard
+<br>
 
-TODO
+## L'État tend à plus d'ouverture.
+## La société civile en bénéficie.
+## OpenFisca, un outil neutre pour un débat informé
+
+<br>
+<br>
 
 ---
 
+class: center, middle
+
 # Source des slides
 
-https://github.com/openfisca/communication/tree/master/docs/PyConFR-2016
+Sur [GitHub](https://github.com/openfisca/communication/tree/master/docs/PyConFR-2016)
 
 ---
 
