@@ -1,5 +1,3 @@
-OpenFisca Communication
-=======================
+# OpenFisca Communication
 
-Software used:
-  * [Dahu](http://dahuapp.github.io/)
+See https://openfisca.github.io/communication/PyConFR-2016/
