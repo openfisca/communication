@@ -148,6 +148,21 @@ Le graphe de la législation actuelle
 
 ---
 
+# Unifier les calculateurs
+
+- un modèle ouvert et unifié
+- entièrement sous licence libre
+- à la Wikipedia
+- maintenu par ses utilisateurs
+- Démocratie++
+
+???
+- interdépendances entre les domaines
+- expérimenter des réformes
+- reproduire les études des experts
+
+---
+
 # Technos
 
 - Python 2 (TODO : passer à Python 3)
@@ -156,19 +171,6 @@ Le graphe de la législation actuelle
 - API web : WSGI
 - Refactorings : redbaron
 - UI JavaScript (React)
-
----
-
-# La Vision
-
-- un modèle ouvert des lois
-- contribution à la Wikipedia
-- maintenu par ses utilisateurs
-- Démocratie++
-
-???
-- expérimenter des réformes
-- reproduire les études des experts
 
 ---
 
@@ -371,10 +373,20 @@ $ calculette-impots calculate V_ANREV=2014 \
 
 .center[<img title="Ateliers du hackathon #CodeImpot" src="images/hackathon-salle.jpg" width="500">]
 
-???
-- différents ateliers (TODO la liste)
+---
+
+# Ateliers du hackathon
+
+- M vers JavaScript : simulateur web offline !
+- code législatif vers code source
+- optimisation du temps de calcul
+- correspondances M / OpenFisca
+- gain à la déclaration commune
+- réformes : revenu de base
 
 ---
+
+exclude: true
 
 # Démocratie ++
 
