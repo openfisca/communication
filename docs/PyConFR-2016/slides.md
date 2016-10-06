@@ -9,19 +9,61 @@ layout: true
 
 class: center, middle
 
-# Libération du calculateur<br>des impôts
+# Écrire la loi en Python
 
-## PyCon France 2016 à Rennes
+PyCon France 2016 à Rennes
 
+[Christophe Benz](mailto:christophe.benz@data.gouv.fr)
 
-https://www.openfisca.fr/
-
-@OpenFisca
-
-Christophe Benz – christophe.benz@data.gouv.fr
+# openfisca.fr
 
 ???
-lalala
+
+Je m'appelle ... je vais vous parler de comment on écrit la loi en Python depuis quelques années.
+
+---
+
+# Quelles lois
+
+- les impôts
+- les aides
+- l'entreprise
+- autres
+
+???
+
+Quelles lois ? Tout ce qui se calcule en euros. On parle de lois fiscales pour les impôts et sociales pour les aides.
+
+---
+
+TODO Dessin des simulateurs fermés
+
+certains ouvert mais pas libres (surtout web)
+
+.center[<img title="Refus" src="images/refus.jpg" width="300">]
+
+???
+
+Problèmes :
+
+- la connaissance est enfermée
+- les citoyens perdent du temps
+- les économistes sont coincés
+
+---
+
+# Solution
+
+<img src="images/logo-openfisca.svg" style="height: 7em; margin-right: 2em; float: left;">
+
+- unique modèle ouvert
+- calculateur
+- logiciel libre
+- indépendance
+
+???
+
+Pour y remédier la solution est soit de se battre pour l'ouverture, soit de créer une alternative en dehors de l'état.
 
 ---
 
@@ -38,29 +80,99 @@ Qui comprend ?
 <br><br>Traduction en code source ?
 
 ???
-La loi ça vous parle ? Et si des geeks codeurs se mettaient à la transformer en code source en Python ?
-
----
-
-# La loi en code source
-
-.center[<img src="images/logo-python.png" style="height:180px;">]
+Au boulot ! On part des textes de loi. Économistes et développeurs font bon ménage. Les geeks écrivent la loi en Python.
 
 ---
 
 # La loi en code source
 
 ```python
-def impot_sur_le_revenu(salaire):
+class iai(Variable):
+    column = FloatCol
+    entity_class = FoyersFiscaux
+    label = u"Impôt avant imputations de l'impôt sur le revenu"
+
+    def function(self, simulation, period):
+        period = period.this_year
+        iaidrdi = simulation.calculate('iaidrdi', period)
+        plus_values = simulation.calculate('plus_values', period)
+        cont_rev_loc = simulation.calculate('cont_rev_loc', period)
+        teicaa = simulation.calculate('teicaa', period)
+
+        return period, iaidrdi + plus_values + cont_rev_loc + teicaa
+```
+
+???
+Juste pour donner un exemple voici une formule d'OpenFisca.
+
+---
+
+# Explorateur de la loi
+
+.center[<img title="Explorateur de la législation" src="images/legislation-explorer-irpp.png" width="700">]
+
+???
+On a d'ailleurs des outils web pour naviguer dans les formules.
+
+---
+
+# Visualisation des formules
+
+<img title="Graphe de la législation dans OpenFisca" src="images/graphe-legislation.jpg" width="600">
+
+???
+On peut dessiner un graphe de dépendances des formules.
+
+---
+
+# La loi est complexe
+# La réalité est complexe
+# Pas de simplification hâtive
+
+???
+La philosophie du projet OpenFisca est que si on simplifie trop tôt on risque de léser des tas de gens.
+Il vaut mieux d'abord appréhender cette complexité avec les bons outils.
+
+---
+
+class: center, middle
+
+<img title="Démonstrateur" src="images/démonstrateur.png" width="700">
+
+Démonstrateur – https://ui.openfisca.fr/
+
+???
+Par exemple on a ici en une seule vue tout un tas d'indicateurs qui auparavant étaient éparpillés dans de nombreux calculateurs.
+
+---
+
+# Nouveaux problèmes
+
+- fiablité
+- non-officiel
+- contributions
+
+???
+Une fois qu'on a ces outils libres de nouveaux problèmes se posent.
+
+---
+
+# Exemple simplifié
+
+```python
+def impot(salaire):
     return salaire * 0.3
 ```
 
+???
+Prenons un peu de recul pour mieux comprendre : codons l'impôt sur le revenu.
+
 ---
 
-# La loi en code source
+# Exemple simplifié
 
 ```python
-def impot_sur_le_revenu(salaire):
+def impot(salaire):
     return salaire * 0.3
 
 def allocations(salaire):
@@ -69,53 +181,36 @@ def allocations(salaire):
 
 ---
 
-# La loi en code source
+# Exemple simplifié
 
 ```python
-def impot_sur_le_revenu(salaire):
+def impot(salaire):
     return salaire * 0.3
 
 def allocations(salaire):
   return 1000 if salaire < 10000 else 0
 
 def revenu_disponible(salaire):
-    return salaire \
-        - impot_sur_le_revenu(salaire) \
-        + allocations(salaire)
+    return salaire - impot(salaire) + allocations(salaire)
 ```
 
 ## Et voilà !
 
 ---
 
-# Visualisation
-
-TODO Graphe de dépendance
-
-???
-On se dit qu'en faisant un peu de parsing du code ou par d'autres techniques on peut visualiser les dépendances entre les formules.
-
----
-
-# Attrayant, mais fastidieux...
-
-- le boulot a déjà été fait par l'État
-- peut-on y accéder ?
-
-.center[<img title="Refus" src="images/refus.jpg" width="300">]
-
-
----
+exclude: true
 
 # Historique d'OpenFisca
 
 - 2011 : accès impossible aux codes sources
 - besoin de simuler des réformes
-- 2 économistes de France Stratégie
+- 2 économistes
   - apprennent le Python pour l'occasion
   - petits scripts Python / NumPy
 
 ---
+
+exclude: true
 
 # Historique d'OpenFisca
 
@@ -128,49 +223,11 @@ On se dit qu'en faisant un peu de parsing du code ou par d'autres techniques on 
 
 ---
 
-class: center, middle
-
-<img title="Démonstrateur" src="images/démonstrateur.png" width="700">
-
-Démonstrateur – https://ui.openfisca.fr/
-
----
-
-class: center, middle
-
-<img title="Graphe de la législation dans OpenFisca" src="images/graphe-legislation.jpg" width="600">
-
-Inter-dépendances entre les formules
-
-???
-Du coup grâce à ce travail on obtient enfin notre graphe !
-Le graphe de la législation actuelle
-
----
-
-# Unifier les calculateurs
-
-- un modèle ouvert et unifié
-- entièrement sous licence libre
-- à la Wikipedia
-- maintenu par ses utilisateurs
-- Démocratie++
-
-???
-- interdépendances entre les domaines
-- expérimenter des réformes
-- reproduire les études des experts
-
----
-
 # Technos
 
-- Python 2 (TODO : passer à Python 3)
-- NumPy
-- Jupyter notebook
-- API web : WSGI
-- Refactorings : redbaron
-- UI JavaScript (React)
+- Moteur de calcul et formules : Python NumPy
+- API web : Python WSGI
+- UI : JavaScript, React
 
 ---
 
