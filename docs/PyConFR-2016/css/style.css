@@ -45,17 +45,25 @@
 body {
   font-family: 'Droid Serif';
 }
-h1, h2, h3 {
-  font-family: 'Yanone Kaffeesatz';
-  font-weight: normal;
-}
 .remark-slide-content {
   font-size: 25px;
   /*text-shadow: 0px 0px 2px linen;*/
 }
+.remark-slide-content h1,
+.remark-slide-content h2,
+.remark-slide-content h3 {
+  font-family: 'Yanone Kaffeesatz';
+  font-weight: normal;
+}
 .remark-slide-content h1 {
   font-size: 80px;
-  margin: 0;
+}
+.remark-slide-content ul {
+  line-height: 2em;
+}
+.remark-slide-content p,
+.remark-slide-content ul {
+  font-size: 30px;
 }
 .remark-code, .remark-inline-code {
   font-size: 22px;
@@ -66,8 +74,4 @@ h1, h2, h3 {
   right: 0;
   width: 100%;
   margin-left: 18em;
-}
-ul {
-  line-height: 2em;
-  font-size: 30px;
 }

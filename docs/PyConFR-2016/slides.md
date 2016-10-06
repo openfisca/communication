@@ -7,7 +7,7 @@ layout: true
 
 ---
 
-class: center
+class: center, middle
 
 # Libération du calculateur<br>des impôts
 
@@ -15,10 +15,6 @@ class: center
 
 
 https://www.openfisca.fr/
-
-https://framagit.org/openfisca
-
-https://github.com/openfisca
 
 @OpenFisca
 
@@ -39,10 +35,16 @@ Qui comprend ?
 
 Ça grossit !
 
-<br><br>Et si des codeurs Python traduisaient ça en code source ?
+<br><br>Traduction en code source ?
 
 ???
 La loi ça vous parle ? Et si des geeks codeurs se mettaient à la transformer en code source en Python ?
+
+---
+
+# La loi en code source
+
+.center[<img src="images/logo-python.png" style="height:180px;">]
 
 ---
 
@@ -53,7 +55,17 @@ def impot_sur_le_revenu(salaire):
     return salaire * 0.3
 ```
 
-.center[<img src="images/logo-python.png" style="height:180px;">]
+---
+
+# La loi en code source
+
+```python
+def impot_sur_le_revenu(salaire):
+    return salaire * 0.3
+
+def allocations(salaire):
+  return 1000 if salaire < 10000 else 0
+```
 
 ---
 
@@ -85,7 +97,7 @@ On se dit qu'en faisant un peu de parsing du code ou par d'autres techniques on 
 
 ---
 
-## C'est tentant, mais fastidieux...
+# Attrayant, mais fastidieux...
 
 - le boulot a déjà été fait par l'État
 - peut-on y accéder ?
@@ -116,19 +128,19 @@ On se dit qu'en faisant un peu de parsing du code ou par d'autres techniques on 
 
 ---
 
-# Démonstrateur OpenFisca
+class: center, middle
 
-.center[<img title="Démonstrateur" src="images/démonstrateur.png" width="700">]
+<img title="Démonstrateur" src="images/démonstrateur.png" width="700">
 
-.center[https://ui.openfisca.fr/]
+Démonstrateur – https://ui.openfisca.fr/
 
 ---
 
-# Visualisation des formules
+class: center, middle
 
-.center[<img title="Graphe de la législation dans OpenFisca" src="images/graphe-legislation.jpg" width="600">]
+<img title="Graphe de la législation dans OpenFisca" src="images/graphe-legislation.jpg" width="600">
 
-.center[Inter-dépendances entre les formules]
+Inter-dépendances entre les formules
 
 ???
 Du coup grâce à ce travail on obtient enfin notre graphe !
@@ -144,6 +156,19 @@ Le graphe de la législation actuelle
 - API web : WSGI
 - Refactorings : redbaron
 - UI JavaScript (React)
+
+---
+
+# La Vision
+
+- un modèle ouvert des lois
+- contribution à la Wikipedia
+- maintenu par ses utilisateurs
+- Démocratie++
+
+???
+- expérimenter des réformes
+- reproduire les études des experts
 
 ---
 
@@ -382,18 +407,25 @@ S'assurer que les calculs sont justes
 
 # Comparaison des résultats
 
-- génération de population aléatoire (TODO comment)
+- génération de population aléatoire
 - exécution des calculs dans les différents simulateurs
-- comparaison [graphique](https://github.com/openfisca/combine-calculators/blob/master/scripts/visual_comparisons.ipynb) des résultats
 - référence : le simulateur en ligne des impôts
+- comparaison [graphique](https://github.com/openfisca/combine-calculators/blob/master/scripts/visual_comparisons.ipynb) des résultats
+
+???
+TODO comment est générée la population ?
 
 ---
+
+exclude: true
 
 # Impôt par calculateur
 
 .center[<img title="Impôt sur le revenu par calculateur" src="images/irpp_by_calculator.png" width="600">]
 
 ---
+
+exclude: true
 
 ## Différences avec le simulateur impots.gouv.fr
 
@@ -403,18 +435,18 @@ S'assurer que les calculs sont justes
 
 # Synthèse des différences
 
-TODO Synthétiser les classes d'erreurs et leur pourcentage
-Combien de cas en tout, combien OK, combien ERREUR
-
----
-
-# Débriefing sur M
-
-- le code M libéré n'est pas appelé correctement
-- transformation en Python à améliorer
+- 2000 cas aléatoires : déclaration simplifiée
+- 2 erreurs pour OpenFisca \o/
+- plus d'erreurs pour la Calculette Impôts
+- mais travail à poursuivre
 - il faut itérer avec l'équipe M
-- les tests
-- le code source des années précédentes / suivantes
+
+???
+
+- le code M libéré n'est pas appelé correctement (vérifs)
+- transformation en Python à améliorer
+- cas générés simples, cases de la déclaration simplifiée
+- si on ajoute des cases d'autres erreurs vont apparaître dans OpenFisca
 
 ---
 
@@ -429,16 +461,13 @@ Combien de cas en tout, combien OK, combien ERREUR
 
 TODO
 
----
-
-# Contribution
-
-- difficulté dans chaque domaine de la loi
-- difficulté à appréhender le moteur et ses concepts
+- envie de simuler un domaine particulier de la loi
+- envie d'écrire un outil
+- envie d'améliorer les choses
 
 ---
 
-# Améliorations
+# Améliorations possibles
 
 - refactorings multiples (redbaron)
 - faciliter l'édition des formules
@@ -449,15 +478,13 @@ TODO
 
 class: center, middle
 
-# Conclusion
-
-<br>
-
 ## L'État tend à plus d'ouverture.
 ## La société civile en bénéficie.
-## OpenFisca, un outil neutre pour un débat informé
 
-<br>
+.center[[<img title="Démocratie mise à jour" src="images/democratie-mise-a-jour.png" height="200">](http://www.renaissancenumerique.org/publications/rn/792-2016-04-18-08-25-24)]
+
+# Un outil neutre pour un débat informé
+
 <br>
 
 ---
