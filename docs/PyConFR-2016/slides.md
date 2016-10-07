@@ -50,7 +50,6 @@ Quelles lois sont écrites en Python ? Tout ce qui se calcule en euros. On parle
 Exemple : [le RSA rapporterait plus que le SMIC](http://rue89.nouvelobs.com/rue89-eco/2013/03/12/la-fable-bidon-de-la-famille-rsa-qui-gagne-plus-que-la-famille-salariee-240493)
 
 <img title="Tableau RSA" src="images/tableau-rsa.png" width="350">
-<img title="Tableau RSA corrigé" src="images/tableau-rsa-corrige.png" width="350">
 
 ???
 
@@ -58,6 +57,17 @@ Exemple : [le RSA rapporterait plus que le SMIC](http://rue89.nouvelobs.com/rue8
 - Pourquoi écrire la loi en Python ?
   - pour effectuer des calculs fiables
   - fonder la décision sur des résultats reproductibles.
+
+---
+
+count: false
+
+# Les affirmations bidon
+
+Exemple : [le RSA rapporterait plus que le SMIC](http://rue89.nouvelobs.com/rue89-eco/2013/03/12/la-fable-bidon-de-la-famille-rsa-qui-gagne-plus-que-la-famille-salariee-240493)
+
+<img title="Tableau RSA" src="images/tableau-rsa.png" width="350">
+<img title="Tableau RSA corrigé" src="images/tableau-rsa-corrige.png" width="350">
 
 ---
 
@@ -97,10 +107,10 @@ Pour cela il nous faut un calculateur et des formules de calcul :
 
 <img src="images/logo-openfisca.svg" style="height: 7em; margin-right: 2em; float: left;">
 
-- unique modèle ouvert
-- calculateur
+- modèle unifié
 - logiciel libre
-- indépendance
+- performance
+- pédagogie
 
 ???
 
@@ -116,7 +126,7 @@ Pour y remédier on peut soit se battre pour l'ouverture, soit créer une altern
 
 Qui maîtrise le sujet ?
 
-<br><br>Traduction en code source ?
+<br><br>Traduction en code source !
 
 ???
 On part des textes de loi, complexes vous en conviendrez.
@@ -125,32 +135,9 @@ C'est un pari ambitieux mais on finit par y arriver !
 
 ---
 
-# La loi en code source
+<h1 style="margin: 0">Visualisation des formules</h1>
 
-```python
-class iai(Variable):
-    column = FloatCol
-    entity_class = FoyersFiscaux
-    label = "Impôt avant imputations de l'impôt sur le revenu"
-
-    def function(self, simulation, period):
-        period = period.this_year
-        iaidrdi = simulation.calculate('iaidrdi', period)
-        plus_values = simulation.calculate('plus_values', period)
-        cont_rev_loc = simulation.calculate('cont_rev_loc', period)
-        teicaa = simulation.calculate('teicaa', period)
-
-        return period, iaidrdi + plus_values + cont_rev_loc + teicaa
-```
-
-???
-Voici un exemple de formule dans OpenFisca.
-
----
-
-# Visualisation des formules
-
-<img title="Graphe de la législation dans OpenFisca" src="images/graphe-legislation.jpg" width="600">
+<img title="Graphe de la législation dans OpenFisca" src="images/graphe-legislation.jpg" width="700">
 
 ???
 On peut dessiner un graphe de dépendances des formules.
@@ -193,6 +180,8 @@ Prenons un peu de recul pour mieux comprendre : codons l'impôt sur le revenu.
 
 ---
 
+count: false
+
 # Intermède
 
 ```python
@@ -204,6 +193,8 @@ def allocations(salaire):
 ```
 
 ---
+
+count: false
 
 # Intermède
 
@@ -256,10 +247,22 @@ Ces formules sont-elles exactes, càd reflètent bien la loi ?
 - utile pour les particuliers
 - https://mes-aides.gouv.fr/
 - https://embauche.beta.gouv.fr/
-- à vous de jouer !
+- utilisent l'API Web
 
 ???
 Ces produits appellent en bout de chaîne l'API web d'OpenFisca.
+
+---
+
+<h1 style="margin: 0">mes-aides.gouv.fr</h1>
+
+.center[<img title="Mes-aides" src="images/mes-aides.png" width="700">]
+
+---
+
+<h1 style="margin: 0">embauche.beta.gouv.fr</h1>
+
+.center[<img title="Embauche" src="images/simulateur-embauche.gif" width="700">]
 
 ---
 
@@ -278,13 +281,18 @@ Ces produits appellent en bout de chaîne l'API web d'OpenFisca.
 
 ---
 
-# Base documentaire
+<h1 style="margin: 0">Jupyter notebook</h1>
 
-.center[<img title="Explorateur de la législation" src="images/legislation-explorer-irpp.png" width="700">]
+.center[<img title="Notebook" src="images/notebook.png" width="700">]
+
+---
+
+<h1 style="margin: 0">Comprendre la loi</h1>
+
+.center[<img title="Heatmap" src="images/tax-income.png" width="550">]
 
 ???
-- Avant même de faire des calculs, OpenFisca peut servir de base documentaire.
-- On peut savoir quelle formule dépend de quelles autres, établir des liens avec les articles de loi
+Une carte de chaleur qui a été faite en Python mais en dehors d'OpenFisca.
 
 ---
 
@@ -303,28 +311,13 @@ Une fois qu'on a ces outils libres de nouveaux défis apparaissent.
 
 # La « Calculette Impôts »
 
+- administration fiscale
 - libérée en avril 2016
-- OpenFisca en bénéficie
-- implication des développeurs d'OpenFisca
+- OpenFisca plus fiable
 
 ???
-L'administration fiscale a ouvert son calculateur en avril 2016 sous licence libre.
-
-Le code M couvre les impôts sur les revenus, OpenFisca couvre en plus le social, l'entreprise...
-
----
-
-exclude: true
-
-# Étapes de la libération
-
-TODO Dates
-
-- étudiant-chercheur en économie
-- dépose d'une demande CADA => OK
-- décision du tribunal administratif
-- février 2016 : livraison du code source
-- avril 2016 : [hackathon](https://forum.openfisca.fr/t/guide-pratique-du-hackathon-codeimpot/42) à la fondation Mozilla
+- c'est une première
+- Elle couvre les impôts sur les revenus, OpenFisca couvre en plus le social, l'entreprise...
 
 ---
 
@@ -342,8 +335,6 @@ parser à grammaire « PEG » avec [Arpeggio](http://igordejanovic.net/Arpeggio/
 Le parser génère un arbre syntaxique qui permet de générer du Python.
 
 ---
-
-exclude: true
 
 # Calcul en ligne de commande
 
@@ -367,9 +358,9 @@ On peut désormais lancer un calcul depuis la ligne de commande.
 
 ---
 
-# Hackathon #CodeImpot
+<h1 style="margin: 0">Hackathon #CodeImpot</h1>
 
-.center[<img title="Ateliers du hackathon #CodeImpot" src="images/hackathon-salle.jpg" width="500">]
+.center[<img title="Ateliers du hackathon #CodeImpot" src="images/hackathon-salle.jpg" width="550">]
 
 ???
 
@@ -377,11 +368,8 @@ Une fois le code M compilé en Python, des ateliers de travail ont pu avoir lieu
 lors d'un hackathon organisé à la fondation Mozilla où était présente l'équipe qui travaille sur
 la calculette.
 
----
-
-exclude: true
-
-# Ateliers du hackathon
+- 3 ministres
+- développeurs, agents de l'état, économistes, citoyens
 
 - M vers JavaScript : calculateur web offline !
 - code législatif vers code source
@@ -397,44 +385,16 @@ exclude: true
 - génération aléatoire de ~2000 familles
 - exécution des calculs dans chaque calculateur
 - référence : le simulateur en ligne des impôts
+- les écarts apparaissent
+- gérer des cas de plus en plus complexes
 
 ???
 
 - Désormais OpenFisca peut être comparé à un autre calculateur, officiel.
 - Une population est générée en utilisant certaines cases de la déclaration simplifiée.
 - l'exécution du simulateur en ligne est automatisée
-- Comparaison [graphique](https://github.com/openfisca/combine-calculators/blob/master/scripts/visual_comparisons.ipynb) des résultats
-
----
-
-exclude: true
-
-# Impôt par calculateur
-
-.center[<img title="Impôt sur le revenu par calculateur" src="images/irpp_by_calculator.png" width="600">]
-
----
-
-exclude: true
-
-## Différences avec le simulateur impots.gouv.fr
-
-.center[<img title="Différences avec le simulateur en ligne" src="images/differences_with_online_simulator.png" width="600">]
-
----
-
-# Nature des erreurs
-
-- 2 erreurs pour OpenFisca \o/
-- des erreurs pour la Calculette Impôts
-- travail à poursuivre
-- gérer des cas plus complexes
-
-???
-
-- le code M libéré n'est pas appelé correctement (vérifs)
-- transformation en Python à améliorer
 - si on ajoute des cases d'autres erreurs vont apparaître dans OpenFisca
+- Comparaison [graphique](https://github.com/openfisca/combine-calculators/blob/master/scripts/visual_comparisons.ipynb) des résultats
 
 ---
 
@@ -449,17 +409,6 @@ exclude: true
 ???
 
 - le gros de notre travail consiste à simplifier l'écriture des formules
-
----
-
-exclude: true
-
-# Améliorations possibles
-
-- refactorings multiples (redbaron)
-- faciliter l'édition des formules
-- abstraction dans les calculs (helpers)
-- vers un arbre de calcul déclaratif ?
 
 ---
 
