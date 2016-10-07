@@ -45,7 +45,7 @@ Quelles lois sont écrites en Python ? Tout ce qui se calcule en euros. On parle
 
 ---
 
-# Les affirmations bidon
+# Les polémiques
 
 Exemple : [le RSA rapporterait plus que le SMIC](http://rue89.nouvelobs.com/rue89-eco/2013/03/12/la-fable-bidon-de-la-famille-rsa-qui-gagne-plus-que-la-famille-salariee-240493)
 
@@ -62,7 +62,7 @@ Exemple : [le RSA rapporterait plus que le SMIC](http://rue89.nouvelobs.com/rue8
 
 count: false
 
-# Les affirmations bidon
+# Les polémiques
 
 Exemple : [le RSA rapporterait plus que le SMIC](http://rue89.nouvelobs.com/rue89-eco/2013/03/12/la-fable-bidon-de-la-famille-rsa-qui-gagne-plus-que-la-famille-salariee-240493)
 
@@ -71,8 +71,7 @@ Exemple : [le RSA rapporterait plus que le SMIC](http://rue89.nouvelobs.com/rue8
 
 ---
 
-# Les calculateurs
-
+# Un calculateur
 
 - une situation en entrée
 - évaluation de formules de calcul
@@ -89,7 +88,7 @@ Pour cela il nous faut un calculateur et des formules de calcul :
 
 ---
 
-# Situation en 2011
+# Les problèmes en 2011
 
 - les calculateurs sont éparpillés
 - accessibles ou pas – mais propriétaires
@@ -107,7 +106,7 @@ Pour cela il nous faut un calculateur et des formules de calcul :
 
 <img src="images/logo-openfisca.svg" style="height: 7em; margin-right: 2em; float: left;">
 
-- modèle unifié
+- modèle unifié en Python
 - logiciel libre
 - performance
 - pédagogie
@@ -156,11 +155,11 @@ Il vaut mieux d'abord appréhender cette complexité avec les bons outils.
 
 ---
 
-class: center, middle
+class: middle
 
-<img title="Démonstrateur" src="images/démonstrateur.png" width="700">
+# Impôts et aides
 
-Démonstrateur – https://ui.openfisca.fr/
+.center[<img title="Démonstrateur" src="images/démonstrateur.png" width="600">]
 
 ???
 - on a ici réunis au même endroit un ensemble d'indicateurs qui auparavant étaient éparpillés dans de nombreux calculateurs.
@@ -168,7 +167,7 @@ Démonstrateur – https://ui.openfisca.fr/
 
 ---
 
-# Intermède
+# Exemple simplifié
 
 ```python
 def impot(salaire):
@@ -182,7 +181,7 @@ Prenons un peu de recul pour mieux comprendre : codons l'impôt sur le revenu.
 
 count: false
 
-# Intermède
+# Exemple simplifié
 
 ```python
 def impot(salaire):
@@ -196,7 +195,7 @@ def allocations(salaire):
 
 count: false
 
-# Intermède
+# Exemple simplifié
 
 ```python
 def impot(salaire):
@@ -209,10 +208,43 @@ def revenu_disponible(salaire):
     return salaire - impot(salaire) + allocations(salaire)
 ```
 
-## Et voilà ! Mais est-ce exact ?
+???
+Voyons un exemple réel
+
+---
+
+<h1 style="margin: 0">Exemple réel</h1>
+
+```python
+class revdisp(Variable):
+    column = FloatCol(default = 0)
+    entity_class = Menages
+    label = u"Revenu disponible du ménage"
+
+    def function(self, simulation, period):
+        period = period.start.period('year').offset('first-of')
+        rev_trav_holder = simulation.compute('rev_trav', period)
+        pen_holder = simulation.compute('pen', period)
+        rev_cap_holder = simulation.compute('rev_cap', period)
+        psoc_holder = simulation.compute('psoc', period)
+        ppe_holder = simulation.compute('ppe', period)
+        impo = simulation.calculate('impo', period)
+
+        pen = self.sum_by_entity(pen_holder)
+        ppe = self.cast_from_entity_to_role(ppe_holder, role = VOUS)
+        ppe = self.sum_by_entity(ppe)
+        psoc = self.cast_from_entity_to_role(psoc_holder, role = CHEF)
+        psoc = self.sum_by_entity(psoc)
+        rev_cap = self.sum_by_entity(rev_cap_holder)
+        rev_trav = self.sum_by_entity(rev_trav_holder)
+
+        return period, rev_trav + pen + rev_cap + psoc + ppe + impo
+```
 
 ???
-Ces formules sont-elles exactes, càd reflètent bien la loi ?
+- plus complexe : périodes, vectoriel, entités
+- Ces formules sont-elles exactes, càd reflètent bien la loi ?
+
 
 ---
 
@@ -220,7 +252,7 @@ Ces formules sont-elles exactes, càd reflètent bien la loi ?
 
 - tests écrits en même temps que les formules
 - tests consolidés suite à la détection d'erreurs
-- [outil web](https://mes-aides.gouv.fr/tests/) de création de tests
+- non-régression
 
 ???
 - Comme pour les logiciels avec les tests unitaires.
@@ -242,12 +274,11 @@ Ces formules sont-elles exactes, càd reflètent bien la loi ?
 
 ---
 
-# Calculer des cas individuels
+# Utile pour les particuliers
 
-- utile pour les particuliers
-- https://mes-aides.gouv.fr/
-- https://embauche.beta.gouv.fr/
-- utilisent l'API Web
+- calculer des cas individuels
+- connaître les aides
+- estimer le coût d'embauche
 
 ???
 Ces produits appellent en bout de chaîne l'API web d'OpenFisca.
@@ -266,24 +297,22 @@ Ces produits appellent en bout de chaîne l'API web d'OpenFisca.
 
 ---
 
-# Études d'impact
+# Utile pour les économistes
 
-- utile pour les économistes
+- calcul sur population entière
 - données secrètes / données générées
-- réformes : qui gagne, qui perd ?
-- calcul vectoriel avec NumPy
+- études d'impact, réformes, gagnants, perdants
 
 ???
 
 - Plus intéressant : on peut calculer sur une population
-- 10 secondes pour 120 000 individus
 - exemple de réforme : suppression de la tranche d'impôts
 
 ---
 
 <h1 style="margin: 0">Jupyter notebook</h1>
 
-.center[<img title="Notebook" src="images/notebook.png" width="700">]
+.center[<img title="Notebook" src="images/notebook.png" width="600">]
 
 ---
 
@@ -292,101 +321,43 @@ Ces produits appellent en bout de chaîne l'API web d'OpenFisca.
 .center[<img title="Heatmap" src="images/tax-income.png" width="550">]
 
 ???
-Une carte de chaleur qui a été faite en Python mais en dehors d'OpenFisca.
+- Une carte de chaleur qui a été faite en Python mais en dehors d'OpenFisca.
+- taxation en fonction du revenu et des parts en capital
 
 ---
 
-# Nouveaux défis
+# Les défis
 
-- fiablité
-- confiance (non-officiel)
-- contributions
-- maintenance par domaine
+- fiablité des calculs
+- acceptation par l'administration
+- attirer les contributeurs
+- maintenance des formules
+- intégrer les calculateurs officiels
 
 ???
 
-Une fois qu'on a ces outils libres de nouveaux défis apparaissent.
+- non-officiel
 
 ---
 
-# La « Calculette Impôts »
+# Performances Python
 
-- administration fiscale
-- libérée en avril 2016
-- OpenFisca plus fiable
+- Python - NumPy
+- calcul vectoriel
+- 10 secondes pour 120 000 individus
+- ~1500 formules, + de 10 000 appels par calcul
 
 ???
-- c'est une première
-- Elle couvre les impôts sur les revenus, OpenFisca couvre en plus le social, l'entreprise...
+- calcul vectoriel : 1 seule exécution pour une population
 
 ---
 
-# Compilation en Python
-
-- langage M, remonte à 1989
-- livré sans le compilateur
-- écriture d'un compilateur en Python
-
-???
-Langage M adapté aux non-informaticiens
-
-parser à grammaire « PEG » avec [Arpeggio](http://igordejanovic.net/Arpeggio/getting_started/)
-
-Le parser génère un arbre syntaxique qui permet de générer du Python.
-
----
-
-# Calcul en ligne de commande
-
-Un célibataire :
-
-```
-$ calculette-impots calculate V_ANREV=2014 TSHALLOV=30000 IRN
-{ "IRN": 2461 }
-```
-
-Un couple marié :
-
-```
-$ calculette-impots calculate V_ANREV=2014 \
-  TSHALLOV=10000 TSHALLOC=20000 V_0AM=1 V_0AX=05051980 IRN
-{"IRN": 264 }
-```
-
-???
-On peut désormais lancer un calcul depuis la ligne de commande.
-
----
-
-<h1 style="margin: 0">Hackathon #CodeImpot</h1>
-
-.center[<img title="Ateliers du hackathon #CodeImpot" src="images/hackathon-salle.jpg" width="550">]
-
-???
-
-Une fois le code M compilé en Python, des ateliers de travail ont pu avoir lieu
-lors d'un hackathon organisé à la fondation Mozilla où était présente l'équipe qui travaille sur
-la calculette.
-
-- 3 ministres
-- développeurs, agents de l'état, économistes, citoyens
-
-- M vers JavaScript : calculateur web offline !
-- code législatif vers code source
-- optimisation du temps de calcul
-- correspondances M / OpenFisca
-- gain à la déclaration commune
-- réformes : revenu de base
-
----
-
-# Comparaison des résultats
+# Fiabilisation par comparaison
 
 - génération aléatoire de ~2000 familles
 - exécution des calculs dans chaque calculateur
-- référence : le simulateur en ligne des impôts
 - les écarts apparaissent
-- gérer des cas de plus en plus complexes
+- des cas de plus en plus complexes
 
 ???
 
@@ -398,23 +369,23 @@ la calculette.
 
 ---
 
-# Comment aider ?
+# Les contribteurs extérieurs
 
-- logiciel libre géré par la communauté
-- utiliser OpenFisca pour un article, une étude
-- implémenter des formules
-- créer un outil
-- améliorer l'existant
+- utilisent OpenFisca pour un article, une étude
+- implémentent des formules de la loi
+- créent des applications web ou mobile
+- apportent leur savoir sur la loi
 
 ???
 
+- logiciel libre géré par la communauté
 - le gros de notre travail consiste à simplifier l'écriture des formules
 
 ---
 
 class: center, middle
 
-## L'État tend à plus d'ouverture.<br>La société civile en bénéficie.
+## L'État tend à plus d'ouverture<br>La société civile en bénéficie
 
 .center[[<img title="Démocratie mise à jour" src="images/democratie-mise-a-jour.png" height="200">](http://www.renaissancenumerique.org/publications/rn/792-2016-04-18-08-25-24)]
 
