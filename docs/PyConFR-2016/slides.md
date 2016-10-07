@@ -32,7 +32,26 @@ Je m'appelle ... je vais vous parler de comment on écrit la loi en Python depui
 
 ???
 
-Quelles lois ? Tout ce qui se calcule en euros. On parle de lois fiscales pour les impôts et sociales pour les aides.
+Quelles lois sont calculées ? Tout ce qui se calcule en euros. On parle de lois fiscales pour les impôts et sociales pour les aides.
+
+Anecdote Mahdi
+
+---
+
+# Calculateur
+
+
+- une situation en entrée
+- évaluation de formules de calcul
+- un résultat en sortie
+- simulateur – calculateur
+
+???
+Qu'est-ce qu'un calculateur ?
+
+- on entre des individus, familles, salaires, loyer, etc.
+- on calcule par exemple l'impôt sur le revenu, les allocations familiales, etc.
+- le terme calculateur est employé lorsque le résultat est officiel, sinon on dit un simulateur
 
 ---
 
@@ -46,13 +65,13 @@ certains ouvert mais pas libres (surtout web)
 
 Problèmes :
 
-- la connaissance est enfermée
+- la connaissance est éparpillée et inaccessible
 - les citoyens perdent du temps
 - les économistes sont coincés
 
 ---
 
-# Solution
+# Une solution
 
 <img src="images/logo-openfisca.svg" style="height: 7em; margin-right: 2em; float: left;">
 
@@ -63,24 +82,24 @@ Problèmes :
 
 ???
 
-Pour y remédier la solution est soit de se battre pour l'ouverture, soit de créer une alternative en dehors de l'état.
+Pour y remédier on peut soit se battre pour l'ouverture, soit créer une alternative en dehors de l'état.
 
 ---
 
-# Complexité de la loi
+# Un pari ambitieux
 
-<div style="float: left; margin-top: 1em; margin-right: 1em;">
+<div style="float: left; margin-right: 1em;">
   .center[<img title="Livres des codes de la loi" src="images/livres-codes.jpg" width="450">]
 </div>
 
-Qui comprend ?
-
-Ça grossit !
+Qui maîtrise le sujet ?
 
 <br><br>Traduction en code source ?
 
 ???
-Au boulot ! On part des textes de loi. Économistes et développeurs font bon ménage. Les geeks écrivent la loi en Python.
+On part des textes de loi, complexes vous en conviendrez.
+Économistes et développeurs font bon ménage, les geeks veulent écrire la loi en Python.
+C'est un pari ambitieux mais on finit par y arriver !
 
 ---
 
@@ -90,7 +109,7 @@ Au boulot ! On part des textes de loi. Économistes et développeurs font bon m�
 class iai(Variable):
     column = FloatCol
     entity_class = FoyersFiscaux
-    label = u"Impôt avant imputations de l'impôt sur le revenu"
+    label = "Impôt avant imputations de l'impôt sur le revenu"
 
     def function(self, simulation, period):
         period = period.this_year
@@ -103,16 +122,7 @@ class iai(Variable):
 ```
 
 ???
-Juste pour donner un exemple voici une formule d'OpenFisca.
-
----
-
-# Explorateur de la loi
-
-.center[<img title="Explorateur de la législation" src="images/legislation-explorer-irpp.png" width="700">]
-
-???
-On a d'ailleurs des outils web pour naviguer dans les formules.
+Voici un exemple de formule dans OpenFisca.
 
 ---
 
@@ -124,6 +134,8 @@ On a d'ailleurs des outils web pour naviguer dans les formules.
 On peut dessiner un graphe de dépendances des formules.
 
 ---
+
+class: center, middle
 
 # La loi est complexe
 # La réalité est complexe
@@ -142,18 +154,7 @@ class: center, middle
 Démonstrateur – https://ui.openfisca.fr/
 
 ???
-Par exemple on a ici en une seule vue tout un tas d'indicateurs qui auparavant étaient éparpillés dans de nombreux calculateurs.
-
----
-
-# Nouveaux problèmes
-
-- fiablité
-- non-officiel
-- contributions
-
-???
-Une fois qu'on a ces outils libres de nouveaux problèmes se posent.
+Par exemple on a ici réunis au même endroit un ensemble d'indicateurs qui auparavant étaient éparpillés dans de nombreux calculateurs.
 
 ---
 
@@ -198,81 +199,18 @@ def revenu_disponible(salaire):
 
 ---
 
-exclude: true
+# Fiabilisation par les tests
 
-# Historique d'OpenFisca
-
-- 2011 : accès impossible aux codes sources
-- besoin de simuler des réformes
-- 2 économistes
-  - apprennent le Python pour l'occasion
-  - petits scripts Python / NumPy
-
----
-
-exclude: true
-
-# Historique d'OpenFisca
-
-- version initiale en Python Qt
-- 2014 : des développeurs rejoignent le projet
-- version Python avec API web et UI JavaScript
-- entièrement sous licence libre
-
-.center[<img src="images/logo-etalab-fullres.png" style="height: 80px;">]
-
----
-
-# Technos
-
-- Moteur de calcul et formules : Python NumPy
-- API web : Python WSGI
-- UI : JavaScript, React
-
----
-
-# Usages d'OpenFisca
-
-## Simuler des cas individuels
-
-- produits dédiés à un domaine
-  - https://mes-aides.gouv.fr/
-  - https://embauche.beta.gouv.fr/
+- tests écrits en même temps que les formules
+- tests consolidés suite à la détection d'erreurs
+- [outil web](https://mes-aides.gouv.fr/tests/) de création de tests
 
 ???
-L'API Web permet de voir émerger des usages.
-
-l'IPP
-Communauté du revenu de base
-
----
-
-# Usages d'OpenFisca
-
-## Simuler avec des données
-
-- données réelles secrètes
-- données d'enquête accès limité
-- données générées (en travaux)
-- réformes : qui gagne, qui perd ?
-
----
-
-# Usages d'OpenFisca
-
-## Base de documentation
-
-- https://legislation.openfisca.fr/
-
----
-
-# Usages d'OpenFisca
-
-## Études d'impact, projets de lois, de réformes
-
-- Jupyter notebooks
-
-TODO illustration suppression de la trance d'impôts
+- Comment peut-on s'assurer que ces formules sont justes càd reflètent bien la loi ?
+- Comme pour les logiciels avec les tests unitaires.
+- Les tests sont écrits en même temps que les formules.
+- Lorsqu'on s'aperçoit qu'il existe une erreur de calcul, on crée un test et on le fait passer.
+- Il existe un outil web pour déclarer des tests
 
 ---
 
@@ -282,49 +220,74 @@ TODO illustration suppression de la trance d'impôts
 - législation Française : [OpenFisca-France](https://github.com/openfisca/openfisca-france)
 - il existe aussi [OpenFisca-Tunisia](https://github.com/openfisca/openfisca-tunisia)
 - API Web HTTP+JSON
-- possibilité d'héberger sur son serveur
+- api.openfisca.fr ou auto-hébergement
 
 ???
 début Novembre hackathon à Dakar (Sénégal)
 
 ---
 
-# Appréhender la complexité
+# Calculer des cas individuels
 
-- outils de trace
-- explication des résultats des calculs
-- tests
-
-TODO développer, montrer la trace, ludwig
+- https://mes-aides.gouv.fr/
+- https://embauche.beta.gouv.fr/
+- à vous de jouer !
 
 ???
-Au final la technique permet de mieux s'y retrouver
-mais toujours non-officiel
+Ces produits appellent en bout de chaîne l'API web d'OpenFisca.
 
+---
 
+# Calculer sur une population
 
+- données secrètes / données générées
+- réformes : qui gagne, qui perd ?
+- calcul vectoriel avec NumPy
 
+???
+Plus intéressant : on peut simuler une population
+
+10 secondes pour 120 000 individus
+
+TODO illustration suppression de la tranche d'impôts
 
 
 ---
 
-class: center, middle
+# Base de documentation
 
-# « la Calculette Impôts »
-## libérée en avril 2016
+.center[<img title="Explorateur de la législation" src="images/legislation-explorer-irpp.png" width="700">]
+
+???
+Avant même de faire des calculs, OpenFisca peut servir de base de documentation.
 
 ---
 
-# Un nouvel univers
+# Nouveaux problèmes
 
-- ce n'est pas OpenFisca
-- périmètres différents
-- implication des devs d'OpenFisca
+- fiablité
+- non-officiel
+- contributions
 
 ???
+Une fois qu'on a ces outils libres de nouveaux problèmes se posent.
+
+---
+
+# La « Calculette Impôts »
+
+- libérée en avril 2016
+- OpenFisca en bénéficie
+- implication des développeurs d'OpenFisca
+
+???
+L'administration fiscale a ouvert son calculateur en avril 2016 sous licence libre.
+
 Le code M couvre les impôts sur les revenus, OpenFisca couvre en plus le social, l'entreprise...
 
 ---
+
+exclude: true
 
 # Étapes de la libération
 
@@ -338,24 +301,14 @@ TODO Dates
 
 ---
 
-# Exécution... impossible
+# Compilation en Python
 
-- langage M
-- il manque le compilateur :-/
-- un chantier :
-  - transpilation de M vers Python
-  - moteur de calcul en Python en standalone
-  - API web en Python
+- langage M, remonte à 1989
+- livré sans le compilateur
+- écriture d'un compilateur en Python
 
 ???
 adapté aux non informaticiens
-Le langage M propose des constructions pas aussi simples qu'elles pourraient l'être.
-
----
-
-# Exemple langage M
-
-TODO
 
 ---
 
@@ -367,31 +320,6 @@ TODO Illustrer
 - génération d'un arbre syntaxique en JSON
 - interpréter l'AST ou le compiler en Python
 - fournir des outils (CLI, API Web)
-
----
-
-# Command-Line Interface
-
-```
-$ calculette-impots info TSHALLOV
-{
-  "TSHALLOV": {
-    "variable_definition": {
-      "alias": "1AJ",
-      "description": "Salaires - Declarant 1",
-      "tgvh_linecol": [ [ 13637, 1 ], [ 13637, 200 ] ],
-      "type": "variable_saisie"
-    },
-    "variable_reverse_dependencies": [
-      "PERP_INDV",
-      "PPENEXOV",
-      "PPE_BOOL_ACT_COND",
-      "PPE_BOOL_NADAV",
-      [...]
-    ]
-  }
-}
-```
 
 ---
 
@@ -553,8 +481,6 @@ class: center, middle
 .center[[<img title="Démocratie mise à jour" src="images/democratie-mise-a-jour.png" height="200">](http://www.renaissancenumerique.org/publications/rn/792-2016-04-18-08-25-24)]
 
 # Un outil neutre pour un débat informé
-
-<br>
 
 ---
 

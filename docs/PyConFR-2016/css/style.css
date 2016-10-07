@@ -75,3 +75,7 @@ body {
   width: 100%;
   margin-left: 18em;
 }
+.remark-slide > .middle {
+  padding-bottom: 5em;
+}
+
