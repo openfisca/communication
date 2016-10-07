@@ -26,6 +26,7 @@ Je vais vous parler de :
 - comment on écrit la loi en Python depuis quelques années
 - quels sont les enjeux démocratiques
 - ce qui se passe lorsque l'état libère son logiciel de calcul de l'impôt
+- en quoi la situation s'est améliorée depuis 2011
 
 Je suis développeur, au départ je n'y connaissais rien en fiscalité mais ce n'est pas un problème pour participer au projet !
 
@@ -175,7 +176,8 @@ class: center, middle
 Démonstrateur – https://ui.openfisca.fr/
 
 ???
-Par exemple on a ici réunis au même endroit un ensemble d'indicateurs qui auparavant étaient éparpillés dans de nombreux calculateurs.
+- on a ici réunis au même endroit un ensemble d'indicateurs qui auparavant étaient éparpillés dans de nombreux calculateurs.
+- outil pour connaisseurs
 
 ---
 
@@ -240,18 +242,18 @@ Ces formules sont-elles exactes, càd reflètent bien la loi ?
 # Composants logiciels
 
 - moteur de calcul : [OpenFisca-Core](https://github.com/openfisca/openfisca-core)
-- législation Française : [OpenFisca-France](https://github.com/openfisca/openfisca-france)
-- il existe aussi [OpenFisca-Tunisia](https://github.com/openfisca/openfisca-tunisia)
+- législation Franç<a href=""></a>ise : [OpenFisca-France](https://github.com/openfisca/openfisca-france)
 - API Web HTTP+JSON
 - api.openfisca.fr ou auto-hébergement
 
 ???
-début Novembre hackathon à Dakar (Sénégal)
+- le moteur est détaché du pays
 
 ---
 
 # Calculer des cas individuels
 
+- utile pour les particuliers
 - https://mes-aides.gouv.fr/
 - https://embauche.beta.gouv.fr/
 - à vous de jouer !
@@ -261,28 +263,28 @@ Ces produits appellent en bout de chaîne l'API web d'OpenFisca.
 
 ---
 
-# Calculer sur une population
+# Études d'impact
 
+- utile pour les économistes
 - données secrètes / données générées
 - réformes : qui gagne, qui perd ?
 - calcul vectoriel avec NumPy
 
 ???
-Plus intéressant : on peut calculer sur une population
 
-10 secondes pour 120 000 individus
-
-TODO illustration suppression de la tranche d'impôts
-
+- Plus intéressant : on peut calculer sur une population
+- 10 secondes pour 120 000 individus
+- exemple de réforme : suppression de la tranche d'impôts
 
 ---
 
-# Base de documentation
+# Base documentaire
 
 .center[<img title="Explorateur de la législation" src="images/legislation-explorer-irpp.png" width="700">]
 
 ???
-Avant même de faire des calculs, OpenFisca peut servir de base de documentation.
+- Avant même de faire des calculs, OpenFisca peut servir de base documentaire.
+- On peut savoir quelle formule dépend de quelles autres, établir des liens avec les articles de loi
 
 ---
 
@@ -472,7 +474,7 @@ class: center, middle
 ???
 
 - la situation est bien meilleure qu'en 2011, le cadre est posé
-- d'autres pays sont intéressés
+- d'autres pays sont intéressés (début Novembre hackathon à Dakar (Sénégal))
 - ouverture du [calculateur INES](https://git.framasoft.org/openfisca/ines-libre) par l'INSEE
 - questions
 
