@@ -58,6 +58,10 @@ body {
 .remark-slide-content h1 {
   font-size: 80px;
 }
+.remark-slide-content a,
+.remark-slide-content a:visited {
+  color: black;
+}
 .remark-slide-content ul {
   line-height: 2em;
 }
