@@ -326,7 +326,7 @@ Ces produits appellent en bout de chaîne l'API web d'OpenFisca.
 
 ---
 
-# Les défis
+<h1 style="margin: 0">Les défis</h1>
 
 - fiablité des calculs
 - acceptation par l'administration
