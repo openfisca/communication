@@ -300,7 +300,7 @@ Ces produits appellent en bout de chaîne l'API web d'OpenFisca.
 # Utile pour les économistes
 
 - calcul sur population entière
-- données secrètes / données générées
+- données d'enquête accessibles aux seuls chercheurs / données générées
 - études d'impact, réformes, gagnants, perdants
 
 ???
