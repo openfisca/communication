@@ -333,6 +333,7 @@ Ces produits appellent en bout de chaîne l'API web d'OpenFisca.
 - attirer les contributeurs
 - maintenance des formules
 - intégrer les calculateurs officiels
+- utilisation aisée par les chercheurs sur les centres d'accès aux données sécurisés
 
 ???
 
