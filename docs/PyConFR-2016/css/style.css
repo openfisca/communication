@@ -14,20 +14,6 @@
       url('../fonts/yanone-kaffeesatz-v7-latin-regular.svg#YanoneKaffeesatz') format('svg'); /* Legacy iOS */
 }
 
-/* ubuntu-mono-regular - latin */
-@font-face {
-  font-family: 'Ubuntu Mono';
-  font-style: normal;
-  font-weight: 400;
-  src: url('../fonts/ubuntu-mono-v6-latin-regular.eot'); /* IE9 Compat Modes */
-  src: local('Ubuntu Mono'), local('UbuntuMono-Regular'),
-      url('../fonts/ubuntu-mono-v6-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-      url('../fonts/ubuntu-mono-v6-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-      url('../fonts/ubuntu-mono-v6-latin-regular.woff') format('woff'), /* Modern Browsers */
-      url('../fonts/ubuntu-mono-v6-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-      url('../fonts/ubuntu-mono-v6-latin-regular.svg#UbuntuMono') format('svg'); /* Legacy iOS */
-}
-
 /* droid-serif-regular - latin */
 @font-face {
   font-family: 'Droid Serif';
@@ -45,6 +31,7 @@
 body {
   font-family: 'Droid Serif';
 }
+
 .remark-slide-content {
   font-size: 25px;
   /*text-shadow: 0px 0px 2px linen;*/
@@ -71,7 +58,10 @@ body {
 }
 .remark-code, .remark-inline-code {
   font-size: 22px;
-  font-family: 'Ubuntu Mono';
+  font-family: monospace;
+}
+.small .remark-code {
+  font-size: 15px;
 }
 .remark-slide-number {
   left: 0;

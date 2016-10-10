@@ -155,11 +155,9 @@ Il vaut mieux d'abord appréhender cette complexité avec les bons outils.
 
 ---
 
-class: middle
+<h1 style="margin: 0">Impôts et aides</h1>
 
-# Impôts et aides
-
-.center[<img title="Démonstrateur" src="images/démonstrateur.png" width="600">]
+.center[<img title="Démonstrateur" src="images/démonstrateur.png" width="750">]
 
 ???
 - on a ici réunis au même endroit un ensemble d'indicateurs qui auparavant étaient éparpillés dans de nombreux calculateurs.
@@ -205,7 +203,9 @@ def allocations(salaire):
   return 1000 if salaire < 10000 else 0
 
 def revenu_disponible(salaire):
-    return salaire - impot(salaire) + allocations(salaire)
+    return salaire \
+        - impot(salaire) \
+        + allocations(salaire)
 ```
 
 ???
@@ -215,7 +215,7 @@ Voyons un exemple réel
 
 <h1 style="margin: 0">Exemple réel</h1>
 
-```python
+.small[```python
 class revdisp(Variable):
     column = FloatCol(default = 0)
     entity_class = Menages
@@ -239,7 +239,7 @@ class revdisp(Variable):
         rev_trav = self.sum_by_entity(rev_trav_holder)
 
         return period, rev_trav + pen + rev_cap + psoc + ppe + impo
-```
+```]
 
 ???
 - plus complexe : périodes, vectoriel, entités
@@ -293,7 +293,7 @@ Ces produits appellent en bout de chaîne l'API web d'OpenFisca.
 
 <h1 style="margin: 0">embauche.beta.gouv.fr</h1>
 
-.center[<img title="Embauche" src="images/simulateur-embauche.gif" width="700">]
+<img title="Embauche" src="images/simulateur-embauche.gif" width="800">
 
 ---
 
@@ -386,9 +386,9 @@ Ces produits appellent en bout de chaîne l'API web d'OpenFisca.
 
 class: center, middle
 
-## L'État tend à plus d'ouverture<br>La société civile en bénéficie
+## L'État tend à plus d'ouverture
 
-.center[[<img title="Démocratie mise à jour" src="images/democratie-mise-a-jour.png" height="200">](http://www.renaissancenumerique.org/publications/rn/792-2016-04-18-08-25-24)]
+## La société civile en bénéficie
 
 <h1 style="margin: 0">Un outil neutre pour un débat informé</h1>
 
