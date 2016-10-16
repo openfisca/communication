@@ -45,12 +45,11 @@ Quelles lois sont écrites en Python ? Tout ce qui se calcule en euros. On parle
 
 ---
 
-# Les polémiques
+<h1 style="margin: 0">Les polémiques</h1>
 
 Exemple : [le RSA rapporterait plus que le SMIC](http://rue89.nouvelobs.com/rue89-eco/2013/03/12/la-fable-bidon-de-la-famille-rsa-qui-gagne-plus-que-la-famille-salariee-240493)
 
-<img title="Tableau RSA" src="images/tableau-rsa.png" width="350">
-<img title="Tableau RSA corrigé" src="images/tableau-rsa-corrige.png" width="350">
+<img title="Tableau RSA corrigé" src="images/tableau-rsa-corrige.png" width="650">
 
 ???
 
@@ -294,7 +293,7 @@ class revdisp(Variable):
 # Composants logiciels
 
 - moteur de calcul : [OpenFisca-Core](https://github.com/openfisca/openfisca-core)
-- législation Franç<a href=""></a>ise : [OpenFisca-France](https://github.com/openfisca/openfisca-france)
+- législation Française : [OpenFisca-France](https://github.com/openfisca/openfisca-france)
 - API Web HTTP+JSON
 - api.openfisca.fr ou auto-hébergement
 
