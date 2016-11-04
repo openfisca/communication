@@ -1,16 +1,14 @@
 class: center
 
-# OpenFisca
-
-## Une approche permettant de répondre aux défis de la transparence et de l'évaluation.
+## OpenFisca<br>Une approche permettant de répondre aux défis de la transparence et de l'évaluation.
 
 Groupe 10 :
 <br>
 M Tandian – DGDI, M Kora Yaya – DGI Bénin
 <br>
-M Nsukami – Dev. Indé, M Pacifico – AMSE
+M Nsukami – Dev. Indé, M Diop Diagne – DGDI
 <br>
-M Chistophe Benz – ETALAB
+M Benz – ETALAB, M Pacifico – AMSE
 
 <img src="images/logo-openfisca.svg" style="height: 80px; margin: 0 1em;">
 <img src="images/logo-dgid.png" style="height: 80px; margin: 0 1em;">
