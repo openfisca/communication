@@ -1,14 +1,6 @@
-layout: true
-
-<footer style="position: absolute; bottom: 0em; left: 0em; right: 0em;">
-  <img src="images/logo-openfisca.svg" style="height: 80px; margin: 0.5em 1em; float: right;">
-</footer>
-
----
-
 class: center
 
-# Microsimulation ouverte avec OpenFisca
+# OpenFisca
 
 ## Une approche permettant de répondre aux défis de la transparence et de l'évaluation.
 
@@ -19,6 +11,10 @@ M Tandian – DGDI, M Kora Yaya – DGI Bénin
 M Nsukami – Dev. Indé, M Pacifico – AMSE
 <br>
 M Chistophe Benz – ETALAB
+
+<img src="images/logo-openfisca.svg" style="height: 80px; margin: 0 1em;">
+<img src="images/logo-dgid.png" style="height: 80px; margin: 0 1em;">
+<img src="images/logo-imf.jpg" style="height: 100px; margin: 0 1em;">
 
 ---
 
