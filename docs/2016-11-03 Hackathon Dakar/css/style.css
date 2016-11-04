@@ -1,0 +1,76 @@
+/* fonts from https://google-webfonts-helper.herokuapp.com/ */
+
+/* yanone-kaffeesatz-regular - latin */
+@font-face {
+  font-family: 'Yanone Kaffeesatz';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/yanone-kaffeesatz-v7-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Yanone Kaffeesatz Regular'), local('YanoneKaffeesatz-Regular'),
+      url('../fonts/yanone-kaffeesatz-v7-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+      url('../fonts/yanone-kaffeesatz-v7-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+      url('../fonts/yanone-kaffeesatz-v7-latin-regular.woff') format('woff'), /* Modern Browsers */
+      url('../fonts/yanone-kaffeesatz-v7-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+      url('../fonts/yanone-kaffeesatz-v7-latin-regular.svg#YanoneKaffeesatz') format('svg'); /* Legacy iOS */
+}
+
+/* droid-serif-regular - latin */
+@font-face {
+  font-family: 'Droid Serif';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/droid-serif-v6-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Droid Serif'), local('DroidSerif'),
+       url('../fonts/droid-serif-v6-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/droid-serif-v6-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/droid-serif-v6-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/droid-serif-v6-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/droid-serif-v6-latin-regular.svg#DroidSerif') format('svg'); /* Legacy iOS */
+}
+
+body {
+  font-family: 'Droid Serif';
+}
+
+.remark-slide-content {
+  font-size: 25px;
+  /*text-shadow: 0px 0px 2px linen;*/
+}
+.remark-slide-content h1,
+.remark-slide-content h2,
+.remark-slide-content h3 {
+  font-family: 'Yanone Kaffeesatz';
+  font-weight: normal;
+}
+.remark-slide-content h1 {
+  font-size: 80px;
+}
+.remark-slide-content a,
+.remark-slide-content a:visited {
+  color: black;
+}
+.remark-slide-content ul {
+  line-height: 2em;
+}
+.remark-slide-content p,
+.remark-slide-content ul {
+  font-size: 30px;
+}
+.remark-code, .remark-inline-code {
+  font-size: 22px;
+  font-family: monospace;
+}
+.small .remark-code {
+  font-size: 15px;
+}
+.remark-slide-number {
+  left: 0;
+  right: 0;
+  width: 100%;
+  margin-left: 18em;
+  text-align: left;
+}
+.remark-slide > .middle {
+  padding-bottom: 5em;
+}
+
