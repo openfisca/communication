@@ -4,9 +4,9 @@ class: center
 
 Groupe 10 :
 <br>
-M Tandian – DGDI, M Kora Yaya – DGI Bénin
+M Tandian – DGID, M Kora Yaya – DGI Bénin
 <br>
-M Nsukami – Dev. Indé, M Diop Diagne – DGDI
+M Nsukami – Dev. Indé, M Diop Diagne – DGID
 <br>
 M Benz – ETALAB, M Pacifico – AMSE
 
